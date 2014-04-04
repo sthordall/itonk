@@ -1,0 +1,60 @@
+DNS fundamentals
+	1. In Linux, run the commands hostname and nm-tool and investigate the output. In Windows, run the command ipconfig /all and investigate the output.
+		- nm-tool output: What does the Address field tell us?
+			X This machines IP-address.
+ 		- nm-tool output: What does the Prefix field tell us?
+ 			X The IP prefix identifies the number of significant bits used to identify a network. Subnet mask 255.255.255.0, has prefix 24, which tells us that the first 24 bits identifies the network, and the last 8 bits identifies the specific machine.
+ 		- nm-tool output: What does the Gateway field tell us? 
+ 			X The IP of the router the machine is connected to. 
+ 		- nm-tool output: What does the DNS fields tell us?
+ 			X The location of the default DNS-server. 
+	2. In Linux or Windows, ping a webserver
+		- Try browsing the net by IP number and name using your browsers address field.
+			X OK, DONE
+	3. Host Lookup Table (HLT)
+		- Edit your HLT and redirect the name of a web server to IP address of another
+			X Done.
+		- Is the HLT looked through before your primary DNS server is queried?
+			X In host.conf, the order is "host,bind". Therefore the HLT is looked through before the BIND DNS.
+		- Who first proposed the HLT?	
+			X 
+		- When was the HLT proposed?
+			X
+	4. What does TLD stand for?
+		X
+	5. Why does a FQDN end with a dot, “.”?
+		X
+	6. What is a DNS "A" record and what is it used for?
+		X
+	7. What is a DNS zone and what it is used for?
+		X
+Name resolution
+	1. What is recursive and iterative name resolution?
+		X
+	2. How may DNS caching be more effective in recursive vs. iterative resolution?
+		X
+	3. Why are client-side communication costs reduced in recursive name resolution?
+		X
+	4. Why does recursive resolution put higher performance demands on each name server?
+		X
+DNS security extensions
+	1. What is DNSSEC and why is it needed?
+		X
+	2. What is a signed zone?
+		X
+	3. What common types of security vulnerabilities are hindered by DNSSEC?
+		X
+BIND DNS server
+	1. Install BIND on a Linux machine and check the installation
+	2. Configure a caching name server and forwarder
+	3. Use Google’s Name Bench to find a suitable public DNS server to forward to 
+	4. Test and document that forwarding works as intended
+	5. Test and document whether the DNS lookup time is reduced by caching
+Prototype
+	- Consider a concrete case, e.g. home, school, office, or hospital, where employing a caching name server and forwarder serves a realistic purpose
+	- How would you set up BIND in your case?
+	- What functionalities in BIND would you use?
+Project report
+	In your team, write a project report that
+		1. Includes answers to all exercises
+		2. Incorporate the answers in a natural way into your report text 3. Adheres to the report template on CampusNet
