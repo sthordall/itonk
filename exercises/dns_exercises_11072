@@ -13,43 +13,48 @@ DNS fundamentals
 			X OK, DONE
 	3. Host Lookup Table (HLT)
 		- Edit your HLT and redirect the name of a web server to IP address of another
-			X Done.
+			X Done. This can be edited in "/etc/hosts".
 		- Is the HLT looked through before your primary DNS server is queried?
 			X In host.conf, the order is "host,bind". Therefore the HLT is looked through before the BIND DNS.
 		- Who first proposed the HLT?	
-			X 
+			X ------------------------------------------ X
 		- When was the HLT proposed?
-			X
+			X ------------------------------------------ X
 	4. What does TLD stand for?
-		X
+		X "Top Level Domain", one of the domains at the highest level in the hierarchical Domain Name System of the Internet. For example, in the domain name www.example.com, the top-level domain is com (the "dot" and the word that follows it).
 	5. Why does a FQDN end with a dot, “.”?
-		X
+		X "Fully Qualified Domain Name" ends with a dot to distinguish between relative and absolute domain names. The dot is also known as "the root label" http://www.dns-sd.org/TrailingDotsInDomainNames.html
 	6. What is a DNS "A" record and what is it used for?
-		X
+		X Records are data stored in the zone files of the DNS. The "Address record" returns a 32-bit IPv4 address, most commonly used to map hostnames to an IP address of the host. 
 	7. What is a DNS zone and what it is used for?
-		X
+		X A DNS zone is a portion of a domain name space using the Domain Name System (DNS) for which administrative responsibility has been delegated. Delegation of DNS responsibility.
 Name resolution
 	1. What is recursive and iterative name resolution?
-		X
+		X Iterative name resolution, is when the client gets redirected to the specific DNS to perform the lookup. Recursive is when the client passes the task to the root server, which then does all the dirty work. http://www.tcpipguide.com/free/t_DNSBasicNameResolutionTechniquesIterativeandRecurs-4.htm
 	2. How may DNS caching be more effective in recursive vs. iterative resolution?
-		X
+		X ------------------------------------------ X
 	3. Why are client-side communication costs reduced in recursive name resolution?
-		X
+		X Because the client passes the task of redirecting to the different name servers to perform the lookup. In this way, the client simply waits for the task to be done.
 	4. Why does recursive resolution put higher performance demands on each name server?
-		X
+		X Because they are now performing the lookup tasks. And therefore they need to do more communication with other servers, instead of just the client.
 DNS security extensions
 	1. What is DNSSEC and why is it needed?
-		X
+		X Securing the DNS service, which hinders hackers. Is a secure DNS like https is secure http.
 	2. What is a signed zone?
-		X
+		X A DNSSEC secure zone.
 	3. What common types of security vulnerabilities are hindered by DNSSEC?
-		X
+		X Spoofing(data interception and cache poisoning), interference with DNS data on secondary servers, data interception.
 BIND DNS server
 	1. Install BIND on a Linux machine and check the installation
+		X DONE
 	2. Configure a caching name server and forwarder
+		X ------------------------------------------ X
 	3. Use Google’s Name Bench to find a suitable public DNS server to forward to 
+		X ------------------------------------------ X
 	4. Test and document that forwarding works as intended
+		X ------------------------------------------ X
 	5. Test and document whether the DNS lookup time is reduced by caching
+		X ------------------------------------------ X
 Prototype
 	- Consider a concrete case, e.g. home, school, office, or hospital, where employing a caching name server and forwarder serves a realistic purpose
 	- How would you set up BIND in your case?
@@ -57,4 +62,5 @@ Prototype
 Project report
 	In your team, write a project report that
 		1. Includes answers to all exercises
-		2. Incorporate the answers in a natural way into your report text 3. Adheres to the report template on CampusNet
+		2. Incorporate the answers in a natural way into your report text 
+		3. Adheres to the report template on CampusNet
