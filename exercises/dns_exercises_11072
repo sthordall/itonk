@@ -17,9 +17,9 @@ DNS fundamentals
 		- Is the HLT looked through before your primary DNS server is queried?
 			X In host.conf, the order is "host,bind". Therefore the HLT is looked through before the BIND DNS.
 		- Who first proposed the HLT?	
-			X ------------------------------------------ X
+			X Peggy Karp
 		- When was the HLT proposed?
-			X ------------------------------------------ X
+			X In 1971-1972
 	4. What does TLD stand for?
 		X "Top Level Domain", one of the domains at the highest level in the hierarchical Domain Name System of the Internet. For example, in the domain name www.example.com, the top-level domain is com (the "dot" and the word that follows it).
 	5. Why does a FQDN end with a dot, “.”?
