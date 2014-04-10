@@ -1,1 +1,38 @@
+\documentclass[14pt]{article}
+
+\begin{document}
 \section{DNS Fundamentals}
+\textbf{Demonstration of DNS fundamentals - Linux}
+
+The \textit{hostname} command shows the hostname of the system - in this case, it would just be \textbf{ubuntu}.\\
+
+The \textit{nm-tool}, which is demonstrated below, is an utility that provides information about NetworkManager, devices, and wireless networks. 
+
+By running the command in a Linux terminal, we get the following output:
+
+[PICTURE - nm-tool]
+**Screenshot of running commands \textit{hostname} and \textit{nm-tool}**
+
+The \textit{Address} field tells us about the current internal IP-address for the device. The internal IP is an IP assigned for the device that is connected to a router. \\
+
+The \textit{Prefix} tells us the number of significant bits used to identify a network. Subnet mask 255.255.255.0 has a prefix of 24 bits, which tells us that the first 24 bits identifies the network, and the last 8 bits identifies the specific machine. \\
+
+The \textit{Gateway} field tells us about the IP-address for the current host router. In general, a gateway is a network point that acts as an entrance to another network. \\
+
+The \textit{DNS} fields tells us which IP-address they connect to and make a lookup when accessing the internet. 
+
+\textbf{Demonstration of DNS fundamentals - Windows}
+
+It is also possible to view those fields in Windows. This can be done by running a command window in Windows and then run the command \textit{ipconfig /all}. \\
+
+Now, we want to demonstrate in Windows about pinging a webserver. Ping is a computer network administration utility used to test the reachability of a host on an Internet Protocol (IP) network and to measure the round-trip time for messages sent from the originating host to a destination computer. 
+We will experiment with www.dr.dk and then type in the IP-address in a webbrowser - it \underline{will} show the same result:
+
+[PICTURE - ping]
+
+So whether we type www.dr.dk or we type 159.20.6.6 doesn't make a difference - only that www.dr.dk probably is easier to remember! \\
+
+\textbf{Host Lookup Table - HLT}
+
+
+\end{document}
