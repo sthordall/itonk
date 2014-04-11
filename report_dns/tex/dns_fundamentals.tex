@@ -7,8 +7,12 @@ The \textit{nm-tool}, which is demonstrated below, is an utility that provides i
 
 By running the command in a Linux terminal, we get the following output:
 
-[PICTURE - nm-tool]
-**Screenshot of running commands \textit{hostname} and \textit{nm-tool}**
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=150mm]{img/nm-tool.JPG}
+\caption{Screenshot of running commands \textit{hostname} and \textit{nm-tool}}
+\label{nm-tool}
+\end{figure}
 
 The \textit{Address} field tells us about the current internal IP-address for the device. The internal IP is an IP assigned for the device that is connected to a router. \\
 
@@ -25,7 +29,12 @@ It is also possible to view those fields in Windows. This can be done by running
 Now, we want to demonstrate in Windows about pinging a webserver. Ping is a computer network administration utility used to test the reachability of a host on an Internet Protocol (IP) network and to measure the round-trip time for messages sent from the originating host to a destination computer. 
 We will experiment with www.dr.dk and then type in the IP-address in a webbrowser - it \underline{will} show the same result:
 
-[PICTURE - ping]
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=150mm]{img/ping.png}
+\caption{Screenshot of pinging www.dr.dk}
+\label{ping}
+\end{figure}
 
 So whether we type www.dr.dk or we type 159.20.6.6 doesn't make a difference - only that www.dr.dk probably is easier to remember! \\
 
@@ -41,7 +50,12 @@ Operators would retrieve the updated versions on a regular basis and install the
 \subsubsection{Demonstration}
 The Hosts.txt file still exists (in Linux under the folder /etc) and can be used to locally map hostnames to IP-addresses. To demonstrate this, the hostname "numsefisk" has been mapped to the IP-address of www.dr.dk, which is 159.20.6.6:
 
-[PICTURE - hostsText]
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=150mm]{img/hostsText.png}
+\caption{The change "numsefisk" made in Hosts.txt}
+\label{hostsText}
+\end{figure}
 
 By running a browser and type "numsefisk", you will be redirected to www.dr.dk, or as an alternative, you could just ping "numsefisk" to test the changes.
 
