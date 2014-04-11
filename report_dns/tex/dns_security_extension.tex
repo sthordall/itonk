@@ -1,6 +1,4 @@
-\documentclass[14pt]{article}
 
-\begin{document}
 \section{DNS Security Extension}
 \label{DNS Security Extensions}
 The original design of DNS did not include security, which make it vulnerable for hacking.
@@ -24,4 +22,3 @@ DNSSEC is a digital signature, which is set on the data to ensure that they are 
 It is necessary to exploit it to the fullest, taking DNSSEC in use at each stage of the DNS process. 
 
 DNSSEC incorporates a chain of digital signatures in the DNS hierarchy, with each level owns its own signature generating key. This means that the root zone signing a key .dk-zone and that .dk-zone signing key to iha.dk name server. ICANN, who controls the Root Server has DNSSEC in place, DK Hostmaster that controls all .dk domain names have DNSSEC in place, and many web hosts will also provide their users with DNSSEC, so the various links in the lookup process ensures each other.
-\end{document}
