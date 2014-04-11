@@ -1,6 +1,3 @@
-\documentclass[14pt]{article}
-
-\begin{document}
 \section{DNS Fundamentals}
 \textbf{Demonstration of DNS fundamentals - Linux}
 
@@ -50,5 +47,3 @@ By running a browser and type "numsefisk", you will be redirected to www.dr.dk, 
 
 It's worth knowing what happens first - is the HLT looked through before your primary DNS server is queried? 
 The answer can be found in host.conf, because this central file controls the resolver setup, which services to use and in what order. By opening the host.conf, the order is "host,bind", and therefore the HLT is looked through before the BIND DNS.
-
-\end{document}
