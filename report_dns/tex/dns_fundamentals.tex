@@ -32,7 +32,23 @@ We will experiment with www.dr.dk and then type in the IP-address in a webbrowse
 
 So whether we type www.dr.dk or we type 159.20.6.6 doesn't make a difference - only that www.dr.dk probably is easier to remember! \\
 
-\textbf{Host Lookup Table - HLT}
+\textbf{Host Lookup Table - Background and demonstration}
 
+\label{The Background} 
+Before DNS was fully deployed, a woman, \textbf{Peggy Karp}, created a lookup table that mapped all of the network resources in one text formatted file. This formatted file was a simple ASCII text file called “HOSTS.TXT”, and the table contained all of the hostnames and their related IP addresses. 
+
+Operators would install this file on their local server, which would then gain the capability to perform the requisite lookups locally and enable the computer to find resources out on the larger network without a lot of overhead. Whenever an operator added a new machine to the network, they would complete an email template with the appropriate information, send it off to the appropriate people at Stanford Research Institute (SRI) who would compile all of the changes and include them in the next release of HOSTS.TXT and store the new file on a globally available FTP server. 
+
+Operators would retrieve the updated versions on a regular basis and install them on their local servers. The first version of this table was distributed in \textit{1971-1972}. While this arrangement worked well for a number of years, but it suffered from one systemic problem – it wasn’t scalable as the network grew in popularity and new hosts were added. Therefore, the size of HOSTS.TXT grew in direct relationship. For each host added, HOSTS.TXT added a new record, and if the operators did not update their records on a regular basis, HOSTS.TXT would grow out of date which led all sorts of confusion. On the brighter side, it led the engineers of the time to come to the conclusion that a new structure would have to be put into place to replace HOSTS.TXT.
+
+\label{Demonstration}
+The Hosts.txt file still exists (in Linux under the folder /etc) and can be used to locally map hostnames to IP-addresses. To demonstrate this, the hostname "numsefisk" has been mapped to the IP-address of www.dr.dk, which is 159.20.6.6:
+
+[PICTURE - hostsText]
+
+By running a browser and type "numsefisk", you will be redirected to www.dr.dk, or as an alternative, you could just ping "numsefisk" to test the changes.
+
+It's worth knowing what happens first - is the HLT looked through before your primary DNS server is queried? 
+The answer can be found in host.conf, because this central file controls the resolver setup, which services to use and in what order. By opening the host.conf, the order is "host,bind", and therefore the HLT is looked through before the BIND DNS.
 
 \end{document}
