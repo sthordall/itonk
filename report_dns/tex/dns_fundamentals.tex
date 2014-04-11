@@ -1,4 +1,7 @@
 \section{DNS Fundamentals}
+
+The DNS - Domain name service  is used to resolve host names, so it is possible to search for a name, instead of an ip address. This ensures that you can make a search for ea. www.google.com, and not get an error, even if they have changed ip address at some point.
+
 \textbf{Demonstration of DNS fundamentals - Linux}
 
 The \textit{hostname} command shows the hostname of the system - in this case, it would just be \textbf{ubuntu}.\\
@@ -48,9 +51,7 @@ By running a browser and type "numsefisk", you will be redirected to www.dr.dk, 
 It's worth knowing what happens first - is the HLT looked through before your primary DNS server is queried? 
 The answer can be found in host.conf, because this central file controls the resolver setup, which services to use and in what order. By opening the host.conf, the order is "host,bind", and therefore the HLT is looked through before the BIND DNS.
 
-%Questions 4-7
-
-The DNS - Domain name service  is used to resolve host names, so it is possible to search for a name, instead of an ip address. This ensures that you can make a search for ea. www.google.com, and not get an error, even if they have changed ip address at some point. 
+%Questions 4-7 
 
 To understand how DNS work, you have to consider some elements. [1]If you look at an internet address, it is made of the www.second-level-domain.com, the .com is the top level domain. The TLD defines in which TLD the router shall look for the second-level-domain name.
 The .com TLD is a generic TLD (gTLD), which states for which purpose they are to be used. Also there do exist country code TLD's (ccTLD's) like .dk, .jp or .de.
