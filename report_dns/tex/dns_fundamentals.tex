@@ -2,7 +2,7 @@
 
 The DNS - Domain name service  is used to resolve host names, so it is possible to search for a name, instead of an ip address. This ensures that you can make a search for ea. www.google.com, and not get an error, even if they have changed ip address at some point.
 
-\textbf{Demonstration of DNS fundamentals - Linux}
+\subsection{Demonstration of DNS fundamentals - Linux}
 
 The \textit{hostname} command shows the hostname of the system - in this case, it would just be \textbf{ubuntu}.\\
 
@@ -10,8 +10,12 @@ The \textit{nm-tool}, which is demonstrated below, is an utility that provides i
 
 By running the command in a Linux terminal, we get the following output:
 
-[PICTURE - nm-tool]
-**Screenshot of running commands \textit{hostname} and \textit{nm-tool}**
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=150mm]{img/nm-tool.JPG}
+\caption{Screenshot of running commands \textit{hostname} and \textit{nm-tool}}
+\label{nm-tool}
+\end{figure}
 
 The \textit{Address} field tells us about the current internal IP-address for the device. The internal IP is an IP assigned for the device that is connected to a router. \\
 
@@ -21,30 +25,40 @@ The \textit{Gateway} field tells us about the IP-address for the current host ro
 
 The \textit{DNS} fields tells us which IP-address they connect to and make a lookup when accessing the internet. 
 
-\textbf{Demonstration of DNS fundamentals - Windows}
+\subsection{Demonstration of DNS fundamentals - Windows}
 
 It is also possible to view those fields in Windows. This can be done by running a command window in Windows and then run the command \textit{ipconfig /all}. \\
 
 Now, we want to demonstrate in Windows about pinging a webserver. Ping is a computer network administration utility used to test the reachability of a host on an Internet Protocol (IP) network and to measure the round-trip time for messages sent from the originating host to a destination computer. 
 We will experiment with www.dr.dk and then type in the IP-address in a webbrowser - it \underline{will} show the same result:
 
-[PICTURE - ping]
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=150mm]{img/ping.png}
+\caption{Screenshot of pinging www.dr.dk}
+\label{ping}
+\end{figure}
 
 So whether we type www.dr.dk or we type 159.20.6.6 doesn't make a difference - only that www.dr.dk probably is easier to remember! \\
 
-\textbf{Host Lookup Table - Background and demonstration}
+\subsection{Host Lookup Table - Background and demonstration}
 
-\label{The Background} 
+\subsubsection{The Background} 
 Before DNS was fully deployed, a woman, \textbf{Peggy Karp}, created a lookup table that mapped all of the network resources in one text formatted file. This formatted file was a simple ASCII text file called “HOSTS.TXT”, and the table contained all of the hostnames and their related IP addresses. 
 
 Operators would install this file on their local server, which would then gain the capability to perform the requisite lookups locally and enable the computer to find resources out on the larger network without a lot of overhead. Whenever an operator added a new machine to the network, they would complete an email template with the appropriate information, send it off to the appropriate people at Stanford Research Institute (SRI) who would compile all of the changes and include them in the next release of HOSTS.TXT and store the new file on a globally available FTP server. 
 
 Operators would retrieve the updated versions on a regular basis and install them on their local servers. The first version of this table was distributed in \textit{1971-1972}. While this arrangement worked well for a number of years, but it suffered from one systemic problem – it wasn’t scalable as the network grew in popularity and new hosts were added. Therefore, the size of HOSTS.TXT grew in direct relationship. For each host added, HOSTS.TXT added a new record, and if the operators did not update their records on a regular basis, HOSTS.TXT would grow out of date which led all sorts of confusion. On the brighter side, it led the engineers of the time to come to the conclusion that a new structure would have to be put into place to replace HOSTS.TXT.
 
-\label{Demonstration}
+\subsubsection{Demonstration}
 The Hosts.txt file still exists (in Linux under the folder /etc) and can be used to locally map hostnames to IP-addresses. To demonstrate this, the hostname "numsefisk" has been mapped to the IP-address of www.dr.dk, which is 159.20.6.6:
 
-[PICTURE - hostsText]
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=150mm]{img/hostsText.png}
+\caption{The change "numsefisk" made in Hosts.txt}
+\label{hostsText}
+\end{figure}
 
 By running a browser and type "numsefisk", you will be redirected to www.dr.dk, or as an alternative, you could just ping "numsefisk" to test the changes.
 
