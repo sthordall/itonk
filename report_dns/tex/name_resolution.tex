@@ -1,6 +1,3 @@
-\documentclass[14pt]{article}
-
-\begin{document}
 \section{Name Resolution}
 
 When we want to access a specific host via a web browser, we usually type in the host name to locate an identity. The host name uniquely identity an entity, which can be identified with an IP address. In short a Name resolution maps host names to its corresponding IP addresses. 
@@ -18,8 +15,6 @@ With an iterative query, the client will make a query to a DNS Server but this t
 \subsection{Iterative vs Recursive}
 
 When a browser makes a query, it will make a DNS query to a Resolver on the operating system (client). The Resolver has an algorithm that will identify if a certain IP address is likely to be requested again, it will store it (caching). \\\\Likewise, with DNS caching, a caching name server will store DNS query results for a period of time depending on how each server is configured. This will improve the load and response time compared to Iterative resolution. \\\\Caching on iterative resolution, will increase the load and response time as the communication will be between client and server iteratively.
-
-\end{document}
 
 
 
