@@ -47,3 +47,19 @@ By running a browser and type "numsefisk", you will be redirected to www.dr.dk, 
 
 It's worth knowing what happens first - is the HLT looked through before your primary DNS server is queried? 
 The answer can be found in host.conf, because this central file controls the resolver setup, which services to use and in what order. By opening the host.conf, the order is "host,bind", and therefore the HLT is looked through before the BIND DNS.
+
+%Questions 4-7
+
+The DNS - Domain name service  is used to resolve host names, so it is possible to search for a name, instead of an ip address. This ensures that you can make a search for ea. www.google.com, and not get an error, even if they have changed ip address at some point. 
+
+To understand how DNS work, you have to consider some elements. [1]If you look at an internet address, it is made of the www.second-level-domain.com, the .com is the top level domain. The TLD defines in which TLD the router shall look for the second-level-domain name.
+The .com TLD is a generic TLD (gTLD), which states for which purpose they are to be used. Also there do exist country code TLD's (ccTLD's) like .dk, .jp or .de.
+
+A Domain Name can be either fully qualified(FQDN) or not. The definition of a FQDN is, that it is unambiguous, that is, it is unique, and there is only one interpretation of the domain. Hence also the dot at the end of a FQDN to define it is so (http://www.dns-sd.org./TrailingDotsInDomainNames.html ).
+
+when a domain name is looked up, then a DNS zone returns a record, possible a DNS "A" record. This depends on which record is needed to be returned, considered the requested address. Records are data stored in the zone files of the DNS. An "A" record is a "Address record" that returns a 32-bit IPv4 address, most commonly used to map hostnames to an IP address of the host. 
+
+A DNS zone is a portion off a domain name system, just like the areal code in a post district. The zone has been delegated administrative responsibility for the DNS.
+
+sources:
+[1]https://archive.icann.org/en/tlds/
