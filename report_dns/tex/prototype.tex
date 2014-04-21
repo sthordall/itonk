@@ -1,25 +1,13 @@
 \chapter{Prototype}
-This chapter should contain an in-depth description of prototyping
-with the technology, i.e. DNS, DDS, or RMI. That is, you analyze,
-design, implement, and test
+\section{Case}
+A public school wishes to host its own DNS, with the following functionalities:
 \begin{itemize}
-\item a very limited, but functional prototype that utilizes the
-  technology under consideration.
+\item Caching Name Server.
+\item Forwarding to OpenDNS.
+\item Blocking of certain sites.
 \end{itemize}
 
-You define your own prototype and the context in which it should
-function; the list below is for your inspiration.
-
-\begin{itemize}
-\item Domain Name System: A public school or a medium sized company
-  would like to host their own DNS and/or forward requests to OpenDNS.
-\item Data Distribution Service: A hospital or a production factory
-  would like to employ Connext DDS to distribute mission critical
-  data.
-\item Java Remote Method Invocation: A company is setting up
-  facilities, e.g. parcel or luggage sorters, abroad and would like to
-  be able to access back-end methods and data at home.
-\end{itemize}
+\section{Analysis}
 
 In your analysis you should at least address and/or include
 
@@ -31,11 +19,20 @@ In your analysis you should at least address and/or include
   functional requirements
 \end{itemize}
 
-The design, implementation, and test should at least address and/or include:
+\section{Implementation}
+To host the DNS, BIND is used. A general guide to setup BIND is found in section \ref{sec:binddnsserver}.
 
-\begin{itemize}
-\item Diagrams, e.g. UML, supplemented with code snippets of most important parts
-\item Test and evaluation of your system: Does it work as intended?
-\item Evaluation of the prototype and the technology employment as a
-  whole
-\end{itemize}
+\subsection{Caching}
+Since the caching name server functionality is activated by default, this feature needs no further setup.
+
+\subsection{Forwarding}
+The only thing to change in the forwarding setup process is changing the use of Googles DNS to OpenDNS instead. In \emph{/etc/bind/named.conf.options} OpenDNS' address is inserted like this:
+
+\texttt{//Forwarding to OpenDNS} \\
+\texttt{forwarders \{208.67.222.222; 208.67.220.220\};}
+
+\subsection{Blocking}
+
+Furthermore blocking of sites is a requested feature. This can be done by zoning the domains, in the following way:
+
+\section{Test}
