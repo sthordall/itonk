@@ -27,8 +27,8 @@ The \emph{BIND} server can be configured in a wide variety of ways, but in this 
 \emph{/etc/bind/named.conf}\\
 
 \subsubsection{Caching name server}
-Using \emph{BIND} as a \emph{Caching name server} reduces DNS query time, since the server stores answers to name queries, and only forwards the query if it does not already know the answer.
-By default caching is enabled on the \emph{BIND} server. To test this functionality a previously unvisited site is checked with \emph{dig}, two times.
+Using \emph{BIND} as a \emph{Caching name server} reduces DNS query time, since the server stores answers to name queries and only forwards the query if it does not already know the answer.
+By default, caching is enabled on the \emph{BIND} server. To test this functionality a previously unvisited site is checked with \emph{dig}, twice.
 
 \begin{figure}[ht!]
 \centering
@@ -37,10 +37,10 @@ By default caching is enabled on the \emph{BIND} server. To test this functional
 \label{dig_caching_querytime}
 \end{figure}
 
-As expected it is found, see figure \ref{dig_caching_querytime}, that the caching functionality vastly improves query time.
+As expected it is found that the caching functionality vastly improves query time; see figure \ref{dig_caching_querytime}.
 
-\subsubsection{Forwarding} 
-Forwarding is used when \emph{BIND} can not respond to the DNS request with the data from it's cache. This is configured in \emph{/etc/bind/named.conf.options}. Here the DNS servers that \emph{BIND} should forward to are added, in the following manner:
+\subsubsection{Forwarding}
+Forwarding is used when \emph{BIND} cannot respond to the DNS request with the data from its cache. This is configured in \emph{/etc/bind/named.conf.options}. Here, the DNS servers that \emph{BIND} should forward to are added in the following manner:
 
 \texttt{//Forwarding to Google DNS} \\
 \texttt{forwarders \{8.8.4.4\};}
@@ -49,7 +49,6 @@ The reasoning behind choosing Google's public DNS is described in the next secti
 
 \subsection{Analyzing public DNS servers}
 In the quest of finding the best public DNS server, Google's tool \emph{namebench} is used. The results looks as in figure \ref{namebench_meantime_response_chart} and \ref{namebench_response_distro}.
-
 
 \begin{figure}[H]
 \centering
@@ -65,4 +64,4 @@ In the quest of finding the best public DNS server, Google's tool \emph{namebenc
 \label{namebench_response_distro}
 \end{figure}
 
-From this, we find Google to be the best alternative, since this is both public, fast and secure.
+From this, we find Google to be the best alternative, since this is both public, fast, and secure.

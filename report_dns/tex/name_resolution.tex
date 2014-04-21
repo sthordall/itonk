@@ -1,12 +1,18 @@
 \section{Name Resolution}
 
-When we want to access a specific host via a web browser, we usually type in the host name to locate an identity. The host name uniquely identity an entity, which can be identified with an IP address. In short a Name resolution maps host names to its corresponding IP addresses. 
+When we want to access a specific host via a web browser, we usually type in the host name to locate an identity. The host name uniquely identity an entity, which can be identified with an IP address. In short a Name resolution maps host names to its corresponding IP addresses.
 
-So when a client wants to access any entries, it communicates with name servers which contains entries  of host names and its corresponding IP addresses. This communication can vary depending on what type of DNS query is used; recursive and iterative queries. 
+So when a client wants to access any entries, it communicates with name servers which contains entries  of host names and its corresponding IP addresses. This communication can vary depending on what type of DNS query is used; recursive and iterative queries.
 
 \subsection{Recursive Resolution}
 
-When a client wants to query for an entry, it request to a DNS server, which will then do all the work of finding the entity and respond back to the client. \\\\During the process, a DNS server might request other DNS servers to fetch the entity. \\\\So for instance when a client request for a host name, example.com, it first looks up into its resolve.conf file to identity which DNS server it will make a query.  \\\\The DNS Server will then look through its own table (cache), and if not found it will ask the Root Server. \\\\The Root Server will return a list of servers, that is responsible for handling .COM domains (gTLD). \\\\The DNS Server will then choose one of the .COM gTLD Server and then query for the example.com, and if found it will reply back and the DNS Server will respond back to the client with the IP address that corresponds to the host name.
+When a client wants to query for an entry, it requests to a DNS server, then do all the work of finding the entity and respond back to the client.
+
+During the process, a DNS server might request other DNS servers to fetch the entity, i.e. when a client request for a hostname like example.com, it first looks up into its resolve.conf file to identity which DNS server it will make a query.
+
+The DNS Server will then look through its own table (cache), and if not found it will ask the Root Server. The Root Server will return a list of servers, that is responsible for handling .COM domains (gTLD).
+
+The DNS Server will choose one of the .COM gTLD Server and then query for the example.com, and if it exists, it will reply back and the DNS Server will respond back to the client with the IP-address that corresponds to the hostname.
 
 \subsection{Iterative Resolution}
 
@@ -14,7 +20,5 @@ With an iterative query, the client will make a query to a DNS Server but this t
 
 \subsection{Iterative vs Recursive}
 
-When a browser makes a query, it will make a DNS query to a Resolver on the operating system (client). The Resolver has an algorithm that will identify if a certain IP address is likely to be requested again, it will store it (caching). \\\\Likewise, with DNS caching, a caching name server will store DNS query results for a period of time depending on how each server is configured. This will improve the load and response time compared to Iterative resolution. \\\\Caching on iterative resolution, will increase the load and response time as the communication will be between client and server iteratively.
-
-
-
+When a browser makes a query, it will make a DNS query to a Resolver on the operating system (client). The Resolver has an algorithm that will identify if a certain IP-address is likely to be requested again. It will store it (caching). 
+Likewise, with DNS caching, a caching name server will store DNS query results for a period of time depending on how each server is configured. This will improve the load and response time compared to Iterative resolution. Caching on iterative resolution will increase the load and response time as the communication will be between client and server iteratively.
