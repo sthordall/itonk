@@ -68,16 +68,13 @@ The answer can be found in host.conf, because this central file controls the res
 %Questions 4-7
 
 \subsection{Top Level Domain}
-To understand how DNS work, you have to consider some elements. \footnote{ https://archive.icann.org/en/tlds/ } If you look at an internet address, it is made of the www.second-level-domain.com, where the .com is the top level domain. [The TLD defines in which TLD the router shall look for the second-level-domain name.]
-The .com TLD is a generic TLD (gTLD), which states for which purpose they are to be used. It's worth to mention that Top Level Domains for different countries exist \footnote{ These are called country codes Top Level Domain (ccTLD) } like .dk, .jp or .de.
+To understand how DNS work, you have to consider some elements.\footnote{https://archive.icann.org/en/tlds/} If you look at an internet address, it is made of the www.second-level-domain.com, where the .com is the top level domain. The TLD defines in which TLD the router shall look for in the second-level-domain name.
+The .com TLD is a generic TLD (gTLD), which states for which purpose they are to be used. It's worth to mention that Top Level Domains for different countries exist \footnote{These are called country codes Top Level Domain (ccTLD)} like .dk, .jp or .de.
 
 \subsection{Fully Qualified Domain Name}
-A Domain Name can be either fully qualified(FQDN) or not. The definition of a FQDN is its unambiguous, that is, it is unique, and there is only one interpretation of the domain. Hence also the dot at the end of a FQDN to define it is so (http://www.dns-sd.org./TrailingDotsInDomainNames.html ).
+A Domain Name can be either fully qualified(FQDN) or not. The definition of a FQDN is its unambiguity, that is, it is unique, and there is only one interpretation of the domain. Hence also the dot at the end of a FQDN to define it is so e.g. http://www.dns-sd.org./TrailingDotsInDomainNames.html.
 
 \subsection{DNS zone and records}
 When a domain name is looked up,  a DNS zone returns a record, possibly a DNS "A" record. This depends on which record is needed to be returned considered the requested address. Records are data stored in the zone files of the DNS. An "A" record is a "Address record" that returns a 32-bit IPv4 address, most commonly used to map hostnames to an IP-address of the host.
 
 A DNS zone is a portion of a Domain Name System, just like the area code in a post district. The zone has been delegated administrative responsibility for the DNS.
-
-sources:
-[1]
