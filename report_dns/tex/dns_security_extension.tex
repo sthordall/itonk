@@ -16,5 +16,12 @@ Domain Name System Security Extensions (DNSSEC) is a digital signature, which is
 
 \subsection{Signed zones}
 It is necessary to exploit it to the fullest by taking DNSSEC in use at each stage of the DNS process.
-
-[[DNSSEC incorporates a chain of digital signatures in the DNS hierarchy, with each level owns its own signature generating key. This means that the root zone signing a key .dk-zone and that .dk-zone signing key to iha.dk name server. ICANN, who controls the Root Server has DNSSEC in place, DK Hostmaster that controls all .dk domain names have DNSSEC in place, and many web hosts will also provide their users with DNSSEC, so the various links in the lookup process ensures each other. ]] Skal formuleres om og gøres forståelig.. 
+Zones that implement DNSSEC are called signed zones, because they include digital signatures for resource records in their zone files,
+served by DNSSEC-aware authoritative name servers.
+DNSSEC incorporates a chain of digital signatures in the DNS hierarchy. On Each level in the hierarchy, the owner has their own signature generating key. 
+E.g the iha.dk has the following layers:
+Root-zone: ICANN who controls the Root server, they should have the DNSSEC in place.
+.dk-zone: DK-Hostmaster who has the responsibility for all .dk, should have the DNSSEC in place.
+web host: In this layer, the specific webhosting should have their own DNSSEC digital key generator.
+With this method we will ensure the DNS from top to bottom.
+If one or more of these zones doesn't have DNSSEC, we will be a vulnerable, and hackers can easy cheat us as mentioned previously.
