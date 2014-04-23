@@ -1,0 +1,12 @@
+Conclusion:
+	Throughout this project there has been worked with theoretical, and practically work. To every small part off the project, there has been worked with a theoretical as well as a practical part - This has come together in the end as a bigger exercise, demonstrating with the use off the learned tools, how DNS works.
+	
+	DNS offers a "simple" solution for the internet being connected, but has not come to this state in a day or two. Through many different steps, as with Peggy Karp who first developed the Host Lookup Table, to connect everything, it is now only a small part to make the whole internet work. A lot of development like that has been going on, and is still being developed. That is because that there is no golden way that things work, and they can always be optimized, or be made better.
+	
+Discussion:
+	The project has been worked through individually by each group member. Afterwards it has been split up, into small parts given to single members to cover the ground as best as possible. 
+	
+Perspectives:
+	> A lot off solutions exist for our case. 
+	> BIND is a simple and easy set up, but if a more complex solution is needed, something else is needed to be used.
+	
