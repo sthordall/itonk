@@ -1,23 +1,19 @@
 \chapter{Prototype}
-\section{Case}
+\section{Analysis}
 A public school wishes to host its own DNS, with the following functionalities:
 \begin{itemize}
 \item Caching Name Server.
 \item Forwarding to OpenDNS.
-\item Blocking of certain sites.
 \end{itemize}
 
-\section{Analysis}
+This is achieved solely by the use of BIND as a private network DNS Server. The schools network setup therefore will be as illustrated in figure \ref{prototype_network_diagram}.
 
-In your analysis you should at least address and/or include
-
-\begin{itemize}
-\item Overall diagram and description of the prototype
-\item Relevance of the technology under consideration to your prototype
-\item How the technology is included in your prototype
-\item Definition of a small set of realistic use-cases and related
-  functional requirements
-\end{itemize}
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{img/prototype_network_diagram.png}
+\caption{School network with BIND server.}
+\label{prototype_network_diagram}
+\end{figure}
 
 \section{Implementation}
 To host the DNS, BIND is used. A general guide to setup BIND is found in section \ref{sec:binddnsserver}.
@@ -31,8 +27,5 @@ The only thing to change in the forwarding setup process is changing the use of 
 \texttt{//Forwarding to OpenDNS} \\
 \texttt{forwarders \{208.67.222.222; 208.67.220.220\};}
 
-\subsection{Blocking}
-
-Furthermore blocking of sites is a requested feature. This can be done by zoning the domains, in the following way:
-
 \section{Test}
+		
