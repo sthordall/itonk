@@ -1,8 +1,25 @@
 \chapter{Conclusion}
-Approximately 1-2 pages covering conclusion, discussion, and perspectives.
 \section{Conclusion}
-Conclude on your investigations.
+The important aspects of the project, regarding Domain Name Service has been explored both theoretically and practically.  The theoretically part revolves around the fundamentals of DNS to support the practical solution, which consist of installing and setup a caching name server, using BIND software.
+
+To further enhance the understanding of a caching name server and its features in regard to BIND, a prototype was made from a given case.
+
 \section{Discussion}
-Discuss your project work.
+
+In the beginning, each member of the group had the very same task; to complete the exercises that was given. This would give each member a basic understanding of DNS, and the overall perspective of what is needed to be accomplished to fulfill the report.
+To further enhance each members knowledge different subjects regarding DNS was delegated to each member.
+
+The report is meant to cover the important aspects of DNS, upon reading the report to reevaluate each members knowledge. The prototype and the chapter regarding the conclusion were written together by the group to centralize the important aspects of the report. 
 \section{Perspectives}
-What are the perspectives on the technology and your prototype? 
+
+To see other perspectives of the technology, a lot of advanced features of BIND can be explored. Features worth to be mentioned could be (fodnote: More features can be found here: http://www.bind9.net/manual/bind/9.3.1/Bv9ARM.ch04.html)
+
+\begin{itemize}
+  \item Split DNS
+  \item Journal files
+  \item Support IPv6
+\end{itemize}
+
+Our prototype contains the default implementation of BIND with no further features enabled. If our client, in our case, wants a private network (intranet) hidden from the public, we could enable a feature called Split DNS.
+
+Basically what Split DNS does is to hide ?internal? DNS information from ?external? clients from the internet. Further explanation can be read from the above mentioned link.
