@@ -25,7 +25,19 @@ Since the caching name server functionality is activated by default, this featur
 The only thing to change in the forwarding setup process is changing the use of Googles DNS to OpenDNS instead. In \emph{/etc/bind/named.conf.options} OpenDNS' address is inserted like this:
 
 \texttt{//Forwarding to OpenDNS} \\
-\texttt{forwarders \{208.67.222.222; 208.67.220.220\};}
+\texttt{forwarders \{208.67.222.222; 208.67.220.220;\};}
 
 \section{Test}
-		
+\subsection{Caching}
+To test this functionality a previously unvisited site is checked with dig, twice. 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{img/prototype_caching_test.png}
+\caption{Prototype testing of Caching Name Server.}
+\label{prototype_caching_test}
+\end{figure}
+
+The drastic performance improvement indicates that caching functionality is fully functional. 
+
+\subsection{Forwarding}

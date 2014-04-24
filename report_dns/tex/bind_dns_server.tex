@@ -43,7 +43,7 @@ As expected it is found that the caching functionality vastly improves query tim
 Forwarding is used when \emph{BIND} cannot respond to the DNS request with the data from its cache. This is configured in \emph{/etc/bind/named.conf.options}. Here, the DNS servers that \emph{BIND} should forward to are added in the following manner:
 
 \texttt{//Forwarding to Google DNS} \\
-\texttt{forwarders \{8.8.4.4\};}
+\texttt{forwarders \{8.8.4.4;\};}
 
 The reasoning behind choosing Google's public DNS is described in the next section.
 
