@@ -22,14 +22,14 @@ To host the DNS, BIND is used. A general guide to setup BIND is found in section
 Since the caching name server functionality is activated by default, this feature needs no further setup.
 
 \subsection{Forwarding}
-The only thing to change in the forwarding setup process is changing the use of Googles DNS to OpenDNS instead. In \emph{/etc/bind/named.conf.options} OpenDNS' address is inserted like this:
+The only thing to change in the forwarding setup process is changing the use of Google's DNS to OpenDNS instead. In \emph{/etc/bind/named.conf.options} OpenDNS' address is inserted like this:
 
 \texttt{//Forwarding to OpenDNS} \\
 \texttt{forwarders \{208.67.222.222; 208.67.220.220;\};}
 
 \section{Test}
 \subsection{Caching}
-To test this functionality a previously unvisited site is checked with dig, twice. 
+To test this functionality a previously unvisited site is checked with dig, twice.
 
 \begin{figure}[ht!]
 \centering
@@ -38,6 +38,6 @@ To test this functionality a previously unvisited site is checked with dig, twic
 \label{prototype_caching_test}
 \end{figure}
 
-The drastic performance improvement indicates that caching functionality is fully functional. 
+The drastic performance improvement indicates that caching functionality is fully functional.
 
 \subsection{Forwarding}

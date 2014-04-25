@@ -1,6 +1,6 @@
 \section{DNS Fundamentals}
 
-The DNS - Domain name service is used to resolve host names, making it possible to search for a name instead of an IP-address. This ensures that you can make a search for i.e. www.google.com and not get an error, even if they have changed IP-address at some point.
+The DNS is used to resolve host names, making it possible to search for a name instead of an IP-address. This ensures that you can make a search for e.g. \url{www.google.com} and not get an error, even if they have changed IP-address at some point.
 
 \subsection{Demonstration of DNS fundamentals - Linux}
 
@@ -27,10 +27,10 @@ The \textit{DNS} fields tells us which IP-address they connect to and make a loo
 
 \subsection{Demonstration of DNS fundamentals - in Windows}
 
-It is also possible to view those fields in Windows, which can be done by running a command window in Windows and then run the command \textit{ipconfig /all}. \\
+It is also possible to view those fields in Windows, which can be done by opening a command window in Windows and then run the command \textit{ipconfig /all}. \\
 
-Now, we want to demonstrate in Windows about pinging a webserver. Ping is a computer network administration utility used to test the reachability of a host on an Internet Protocol (IP) network and to measure the round-trip time for messages sent from the originating host to a destination computer.
-We will experiment with www.dr.dk and then type in the IP-address in a webbrowser - it \underline{will} show the same result:
+This will demonstrate about pinging a webserver. Ping is a computer network administration utility used to test the reachability of a host on an Internet Protocol (IP) network and to measure the round-trip time for messages sent from the originating host to a destination computer.
+We will experiment with \url{www.dr.dk} and then type in the IP-address in a webbrowser - it \underline{will} show the same result:
 
 \begin{figure}[ht!]
 \centering
@@ -39,7 +39,7 @@ We will experiment with www.dr.dk and then type in the IP-address in a webbrowse
 \label{ping}
 \end{figure}
 
-So whether we type www.dr.dk or we type 159.20.6.6 doesn't make a difference - only that www.dr.dk probably is easier to remember! \\
+So whether we type \url{www.dr.dk} or we type 159.20.6.6 doesn't make a difference - only that \url{www.dr.dk} probably is easier to remember! \\
 
 \subsection{Host Lookup Table - Background and demonstration}
 
@@ -51,7 +51,7 @@ Operators would install this file on their local server, which would then gain t
 Operators would retrieve the updated versions on a regular basis and install them on their local servers. The first version of this table was distributed in \textit{1971-1972}. While this arrangement worked well for a number of years, but it suffered from one systemic problem – it wasn’t scalable as the network grew in popularity and new hosts were added. Therefore, the size of HOSTS.TXT grew in direct relationship. For each host added, HOSTS.TXT added a new record, and if the operators did not update their records on a regular basis, HOSTS.TXT would grow out of date which led all sorts of confusion. On the brighter side, it led the engineers of the time to come to the conclusion that a new structure would have to be put into place to replace HOSTS.TXT.
 
 \subsubsection{Demonstration}
-The Hosts.txt file still exists (in Linux under the folder /etc) and can be used to locally map hostnames to IP-addresses. To demonstrate this, the hostname "numsefisk" has been mapped to the IP-address of www.dr.dk, which is 159.20.6.6:
+The Hosts.txt file still exists (in Linux under the folder /etc) and can be used to locally map hostnames to IP-addresses. To demonstrate this, the hostname "numsefisk" has been mapped to the IP-address of \url{www.dr.dk}, which is 159.20.6.6:
 
 \begin{figure}[ht!]
 \centering
@@ -68,13 +68,13 @@ The answer can be found in host.conf, because this central file controls the res
 %Questions 4-7
 
 \subsection{Top Level Domain}
-To understand how DNS work, you have to consider some elements.\footnote{https://archive.icann.org/en/tlds/} If you look at an internet address, it is made of the www.second-level-domain.com, where the .com is the top level domain. The TLD defines in which TLD the router shall look for in the second-level-domain name.
+To understand how DNS work, you have to consider some elements.\footnote{\url{https://archive.icann.org/en/tlds/}} If you look at an internet address, it is made of the www.second-level-domain.com, where the .com is the top level domain. The TLD defines in which TLD the router shall look for in the second-level-domain name.
 The .com TLD is a generic TLD (gTLD), which states for which purpose they are to be used. It's worth to mention that Top Level Domains for different countries exist \footnote{These are called country codes Top Level Domain (ccTLD)} like .dk, .jp or .de.
 
 \subsection{Fully Qualified Domain Name}
-A Domain Name can be either fully qualified(FQDN) or not. The definition of a FQDN is its unambiguity, that is, it is unique, and there is only one interpretation of the domain. Hence also the dot at the end of a FQDN to define it is so e.g. http://www.dns-sd.org./TrailingDotsInDomainNames.html.
+A domain name can be either fully qualified(FQDN) or not. The definition of a FQDN is its unambiguity, that is, it is unique, and there is only one interpretation of the domain. Hence also the dot at the end of a FQDN to define it is so e.g. \\ \url{http://www.dns-sd.org./TrailingDotsInDomainNames.html}.
 
 \subsection{DNS zone and records}
-When a domain name is looked up,  a DNS zone returns a record, possibly a DNS "A" record. This depends on which record is needed to be returned considered the requested address. Records are data stored in the zone files of the DNS. An "A" record is a "Address record" that returns a 32-bit IPv4 address, most commonly used to map hostnames to an IP-address of the host.
-
 A DNS zone is a portion of a Domain Name System, just like the area code in a post district. The zone has been delegated administrative responsibility for the DNS.
+
+When a domain name is looked up,  a DNS zone returns a record, possibly a DNS "A" record. This depends on which record is needed to be returned considered the requested address. Records are data stored in the zone files of the DNS. An "A" record is a "Address record" that returns a 32-bit IPv4 address, most commonly used to map hostnames to an IP-address of the host.

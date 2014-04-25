@@ -1,4 +1,3 @@
-
 \section{DNS Security Extension}
 \label{DNS Security Extensions}
 The original design of DNS did not include security, which makes it vulnerable for hacking.
@@ -16,12 +15,16 @@ Domain Name System Security Extensions (DNSSEC) is a digital signature, which is
 
 \subsection{Signed zones}
 It is necessary to exploit it to the fullest by taking DNSSEC in use at each stage of the DNS process.
-Zones that implement DNSSEC are called signed zones, because they include digital signatures for resource records in their zone files,
-served by DNSSEC-aware authoritative name servers.
-DNSSEC incorporates a chain of digital signatures in the DNS hierarchy. On Each level in the hierarchy, the owner has their own signature generating key. 
-E.g the iha.dk has the following layers:
-Root-zone: ICANN who controls the Root server, they should have the DNSSEC in place.
-.dk-zone: DK-Hostmaster who has the responsibility for all .dk, should have the DNSSEC in place.
-web host: In this layer, the specific webhosting should have their own DNSSEC digital key generator.
+Zones that implement DNSSEC are called signed zones, because they include digital signatures for resource records in their zone files, served by DNSSEC-aware authoritative name servers.
+DNSSEC incorporates a chain of digital signatures in the DNS hierarchy. On each level in the hierarchy, the owner has their own signature generating key.
+
+For instance, the iha.dk has the following layers:
+
+\begin{itemize}
+\item Root-zone: ICANN who controls the Root server, they should have the DNSSEC in place. 
+\item .dk-zone: DK-Hostmaster who has the responsibility for all .dk, should have the DNSSEC in place.
+\item web host: In this layer, the specific webhosting should have their own DNSSEC digital key generator.
+\end{itemize}
+
 With this method we will ensure the DNS from top to bottom.
-If one or more of these zones doesn't have DNSSEC, we will be a vulnerable, and hackers can easy cheat us as mentioned previously.
+If one or more of these zones doesn't have DNSSEC, we will be a vulnerable, and hackers can easy cheat us as mentioned previously. 
