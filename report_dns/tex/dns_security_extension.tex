@@ -3,9 +3,9 @@
 The original design of DNS did not include security, which makes it vulnerable for hacking.
 There are several ways to integrate security directly in the DNS, One of them is DNSSEC that attempts to add security, while maintaining backwards compatibility.
 
-\subsection{Threads}
-There are several threads in DNS a query/response transaction.
-One of the simplest threads against DNS are various forms of packet interception: monkey-in-the-middle attacks, eavesdropping on requests combined with spoofed responses that beat the real response back to the resolver, and so forth.
+\subsection{Threats}
+There are several threats in DNS a query/response transaction.
+One of the simplest threats against DNS are various forms of packet interception: monkey-in-the-middle attacks, eavesdropping on requests combined with spoofed responses that beat the real response back to the resolver, and so forth.
 
 Another interesting method of hacking is DNS spoofing or DNS cache poisoning attack.
 The DNS spoofing is a computer hacking attack into DNS server's cache database and change the name servers IP-addresses. By changing the IP-address, the user's traffic will be diverting to the hackers phishing site.
