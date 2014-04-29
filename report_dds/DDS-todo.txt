@@ -3,3 +3,38 @@ DDS Report TODO
 Everybody should try to go through the exercise and setup the things!
 
 Then we will divide them in sections and write to the report.
+
+Division of tasks by Random.org:
+
+Middleware
+:Cong
+1. What does middleware (MW) do, and why is MW needed?
+2. Mention a MW standard alternative to DDS and how it is managed
+3. Mention at least one concrete implementation of that standard
+
+:Stephan
+4. How may this MW implementation take part in a distributed system
+5. What communication paradigm, e.g. Publish/Subscribe, does the MW employ?
+
+Publish/Subscribe
+:Jakob
+1. What does space, time, and flow decoupling mean?
+2. Mention some MW types and whether they decouple in time, space, and flow
+3. Describe Topic, Content, and Type based Publish/Subscribe
+
+Data distribution service for real-time systems
+:Sam
+1. Describe briefly the Data Local Reconstruction Layer (DLRL)
+2. Describe briefly Data Centric Publish Subscribe (DCPS)
+3. Describe briefly the roles of the DDS/DCPS entities
+(a) Subscriber and Reader
+(b) Publisher and Writer
+(c) Topic name, type, and key
+
+:Kasper
+4. Describe briefly the role of quality of service (QoS) parameters
+(a) Why is DDS called a data-centric middleware?
+5. What is Interface Description Language (IDL)?
+6. Redo the Shapes examples and the Java example from the slides
+
+
