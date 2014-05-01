@@ -1,0 +1,7 @@
+_[How may this MW implementation take part in a distributed system?]_
+RTI Connext may function as communication layer between the different nodes. Since the middleware hides the communication medium from the nodes, the concern of data transportation and distribution is handled by RTI Connext.
+Since the RTI Connext is cross platform, and language agnostic, the system will function holisticly across all nodes in the distributed system; and will especially shine in a multi-platform/multi-language environment.
+
+
+_[What communication paradigm, e.g. Publish/Subscribe, does the MW employ?]_
+Since RTI Connext is based on DDS, the paradigm is Publish/Subscibe. This paradigm ensures that the nodes only need to know what kind of data they can supply, and what kind of data they need. The whole Publish/Subscribe functionality is handled by RTI Connext. 
