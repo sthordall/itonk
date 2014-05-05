@@ -38,3 +38,15 @@ Data distribution service for real-time systems
 6. Redo the Shapes examples and the Java example from the slides
 
 
+Til Tirsdag d. 6 maj
+
+- Rette vores DNS ud fra respons vi har fået af gruppe 9
+	- DNS Fundamentals —> Jacob
+	- Name Resolution —> Kasper
+	- DNSSEC —> Cong
+	- Something :) —> Sam
+- Færdiggøre individuelle DDS emner
+	- Stephan er færdig
+	- Kasper mangler spørgsmål 6
+	- Og så lidt rester 
+

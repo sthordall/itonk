@@ -7,9 +7,16 @@
 
 *.log
 
+*.toc
+
+*.pdf
+
 report_dns/document.toc
 
 report_dns/document.synctex.gz
 
 report_dns/document.synctex.gz(busy)
+<<<<<<< HEAD
 exercises/DDS_Cong_Middleware_1-3.rtf
+=======
+>>>>>>> FETCH_HEAD
