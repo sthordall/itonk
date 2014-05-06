@@ -1,4 +1,4 @@
-DDS Report TODO
+﻿DDS Report TODO
 
 Everybody should try to go through the exercise and setup the things!
 
@@ -50,3 +50,17 @@ Til Tirsdag d. 6 maj
 	- Kasper mangler spørgsmål 6
 	- Og så lidt rester 
 
+
+Til fredag d. 9. maj
+
+Sam: Tegning og beskrivelse af prototypen. 
+
+Stephan: Implementering af prototype + test af prototypen.
+
+Jakob: Bibliography, konklusion + diskussion.
+
+Kasper: Introduction + perspectives.
+
+Cong: Abstract + struktur af rapporten.
+
+Alle skal renskrive deres del og følge LaTeX standard.
