@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!-- 
+Description
+XML QoS Profile for NerdNews ITONK DDS Prototype
+
+For more information about XML QoS Profiles see Chapter 15 in the 
+RTI Connext user manual.
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="../../../resource/qos_profiles_5.0.0/schema/rti_dds_qos_profiles.xsd">
+    <!-- QoS Library containing the QoS profile used in the NerdNews prototype -->
+    <qos_library name="GeekNews_Library">
+        <qos_profile name="HelloWorld_Profile" is_default_qos="true">
+            <!-- QoS used to configure the data writer created in the example code -->                
+            <datawriter_qos>
+                <reliability>
+                    <kind>RELIABLE_RELIABILITY_QOS</kind>
+                    <max_blocking_time>
+                        <sec>60</sec>
+                    </max_blocking_time>
+                </reliability>                
+
+                <history>
+                    <kind>KEEP_ALL_HISTORY_QOS</kind>
+                </history>
+
+                <durability>
+                    <kind>PERSISTENT_DURABILITY_QOS</kind>
+                </durability>
+
+                <resource_limits>
+                    <max_samples>100</max_samples>
+                </resource_limits>
+
+                <protocol>
+                    <rtps_reliable_writer>
+                        <min_send_window_size>50</min_send_window_size>
+                        <max_send_window_size>50</max_send_window_size>
+                    </rtps_reliable_writer>
+                </protocol>
+            </datawriter_qos>
+        
+            <datareader_qos>
+                <reliability>
+                    <kind>RELIABLE_RELIABILITY_QOS</kind>
+                </reliability>
+
+                <durability>
+                    <kind>PERSISTENT_DURABILITY_QOS</kind>
+                    <direct_communication>true</direct_communication>
+                </durability>
+
+                <history>
+                    <kind>KEEP_ALL_HISTORY_QOS</kind>
+                </history>
+            </datareader_qos>
+        </qos_profile>
+    </qos_library>
+</dds>
