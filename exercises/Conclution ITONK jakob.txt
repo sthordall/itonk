@@ -6,6 +6,7 @@ Conclusion:
 Discussion:
 	The project has been worked through individually by each group member. Afterwards it has been split up, into small parts given to single members to cover the ground as best as possible. 
 	
+	
 Perspectives:
 	> A lot off solutions exist for our case. 
 	> BIND is a simple and easy set up, but if a more complex solution is needed, something else is needed to be used.

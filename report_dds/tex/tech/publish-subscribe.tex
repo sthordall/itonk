@@ -1,0 +1,45 @@
+\section{Publish/Subscribe}
+Publish/Subscribe within DDS, is a dividing between the sending and the receiving part. This helps separate the parts, since the receiver only needs to know what data is being communicated.
+
+\subsection{space, time and flow decoupling}
+When speaking about decoupling, either in space, time or flow, it's a question about how coupled the producer and the consumer are in the different subjects.
+\begin{description}
+ \item[Space decoupling] \hfill \\
+ Space refers to, that the publisher and subscriber does not know each other.
+ \item[Flow decoupling] \hfill \\
+ If there is no flow blocking, speaking of data, by either the producer or the consumer, it is called flow decoupling.
+ \item[Time decoupling] \hfill \\
+ When the publisher and subscriber works asynchronous, they are decoupled in time
+\end{description}
+
+\subsection{MW types and decoupling}
+Different types of MW exists. \ref{DeInPa} shows a small part of the different types of middleware, that exists.
+Bellow are explained, tree different types, whether or not they decouple in time, space or flow; RPC/RMI, Notification(Observer D. Pattern) and Publish/Subscribe.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=150mm]{img/DecouplingInteractionParadigms.png}
+\caption{Difference in middleware types and decoupling - (from Many faces of public subscribe)}
+\label{DeInPa}
+\end{figure}
+
+\begin{description}
+\item[The publish/subscribe] type, is a proven and reliable way of delivering information. It is decoupled in time, space and flow - it works with space decoupling, since publisher and subscriber doesn't know each other. Time decoupling, because there are no rules about how the message shall live, and flow because there are no blocking of data. \\
+
+\item[Notification(Observer D. Pattern)] is neither decoupled in space and time. It works by subscriber registers their interests directly with the publisher, so its coupled in space. It works by two asynchronous invocations, but this is to obtain synchronous coupling - so it coupled in time. It is left to the publisher to manage communication, and therefore it is decoupled in flow.\\
+
+\item[RPC(Remote Procedure Call)] is remote invocation, used as distributions of interactions. This type is considered synchronous. It works by sending a asynchronous signals from the consumer, and the producer creates a response. This ensures a secure synchronous connection, and therefore is the RPC coupled in time, and also in space, since the an invoking object holds a reference to each of its invokers. There is though however created types, where it is created asynchronous, but this is less reliable.\\
+    
+\end{description}
+
+\subsection{Topic, Content and Type based Publish/Subscribe}
+When using Publish/Subscribe, the Subscriber can subscribe to the publishers messages through different ways.
+
+\begin{description}
+    \item[Topic based] \hfill \\
+ The publisher defines a keyword/tag, known as a topic, and tags the message with this. It is the publishers responsibility to tag it, with something the subscriber can subscribe to.
+    \item[Content based] \hfill \\
+ The Subscriber sets up a filter, and only receives the messages that matches the filter with it's keywords. Could be languages or many other.
+    \item[Type based] \hfill \\
+ The type based filter, is a scheme that filters according to event types. Types could be such as
+ \end{description} 
