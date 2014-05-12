@@ -29,15 +29,20 @@ DCPS is comprised of the following primary entities:
 \item Topic
 \end{itemize}
 
-	[Insert Figure 4 DDS Entities] and explain this further...
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=80mm]{img/DDS_Entities.png}
+\caption{DDS Entities}
+\label{DDSEntities}
+\end{figure}
 
-Data is sent and received from the data domain. Publishers and Subscribers are used to manage
+\emph{Data is sent and received from the data domain. Publishers and Subscribers are used to manage
 single or multiple Data Writers and Data Readers, respectively. A Data Reader and Data Writer
 must be associated to the same Topic if data published by the Data Writer is to be received by the
-subscribing Data Reader.
+subscribing Data Reader.}
 	
 \subsection{The roles of the DDS/DCPS entities}
-There are certain roles in the DDSD/DCPS entities - a few are briefly described\footnote{more about this can be read in [x]}:
+There are certain roles in the DDSD/DCPS entities - a few are briefly described\footnote{more about this can be read in [1]}:
 
 \begin{description}
 \item[Subscriber and Reader] \hfill \\
@@ -54,5 +59,5 @@ The application use the DataWriter to communicate a data-object of a given type.
 A Topic consists of a name and a type - A DDS Topic is the connection between publishers and subscribers.
 Name is a string uniquely identifying the topic in a domain.
 Type is the definition of the data contained in the Topic.
-Keys are for sorting/filtering incoming data 
-\end{description}
+Keys are for sorting/filtering incoming data
+\end{description} 
