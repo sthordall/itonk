@@ -2,17 +2,22 @@
 \section{Analysis}
 The prototype has been chosen to be a service that distributes news tagged with one or more predefined categories,
 e.g. sports, economy, and science; the subscribers may only be interested in certain news
-categories, and for our prototype, the topics will be IT and movies.
+categories, and for our prototype, the topics will be Tech and movies.
 
 The prototype must at least involve:
 1. Two publishers that publishes different kinds of data.
 2. Two subscribers with different data needs.
 3. Differentiated levels of quality of service.
 
-The QoS has been chosen to be ...?B
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=80mm]{img/DDS_Prototype.png}
+\caption{Design of the prototype}
+\label{DDSPrototype}
+\end{figure}
 
 \section{Implementation}
-The implementation is split up into four main programs, two publishers and two subscribers, split into to topics. The implementation is topic based, and this is implemented as seen in figure figure\ref{TopicCreation}, this is done in both the subscriber and the publisher, and is how the connection between them or acknowledged.
+The implementation is split up into four main programs, two publishers and two subscribers, split into two topics. The implementation is topic based, and this is implemented as seen in figure figure\ref{TopicCreation}, this is done in both the subscriber and the publisher, and is how the connection between them are acknowledged.
 
 \begin{figure}[ht!]
 \centering
@@ -55,7 +60,7 @@ The subscriber extends the class DataReaderAdapter, which enables it to implemen
 \label{OnDataAvailable}
 \end{figure}
 
-Furthermore the QOS is setup in a configuration file, called \emph{USER\_QOS\_PROFILES.xml}. Examples of configuration of some of the policies are seen in the figure \ref{QOSProfiles}, in specifics it is the configuration for the datawriter. Policies as history, reliability, durability and resource limits are configured.
+Furthermore the QoS is setup in a configuration file, called \emph{USER\_QOS\_PROFILES.xml}. Examples of configuration of some of the policies are seen in the figure \ref{QOSProfiles}, in specifics it is the configuration for the datawriter. Policies as history, reliability, durability and resource limits are configured.
 
 \begin{figure}[ht!]
 \centering
@@ -65,7 +70,7 @@ Furthermore the QOS is setup in a configuration file, called \emph{USER\_QOS\_PR
 \end{figure}
 
 \section{Test}
-To test the prototype, the four programs were run side by side. As seen in figure \ref{MovieNewsPubSub} and  \ref{TechNewsPubSub}, everything works as expected. QOS history policy was also tested by opening the publisher before the subscriber, wait, and then start the subscriber. This resulted in the subscriber getting all earlier published on the subscribed topic.
+To test the prototype, the four programs were run side by side. As seen in figure \ref{MovieNewsPubSub} and \ref{TechNewsPubSub}, everything works as expected. QoS history policy was also tested by opening the publisher before the subscriber, wait, and then start the subscriber.[[[[ This resulted in the subscriber getting all earlier published on the subscribed topic.]]]]
 
 \begin{figure}[ht!]
 \centering

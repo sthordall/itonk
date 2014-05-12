@@ -1,9 +1,8 @@
 \section{Publish/Subscribe}
-Publish/Subscribe within DDS is split between the sending and the receiving part. This helps separate to the parts, since the receiver only needs to know what data is being communicated.
+Publish/Subscribe within DDS, is split between the sending and the receiving part. This helps separate to the parts, since the receiver only needs to know what data is being communicated.
 
 \subsection{Space, time, and flow decoupling}
-When speaking about decoupling, either in space, time, or flow, it's a question about how coupled the producer and the consumer are in the different subjects.
-
+When speaking about decoupling, either in space, time or flow, it's a question about how coupled the producer and the consumer are in the different subjects.
 \begin{description}
  \item[Space decoupling] \hfill \\
  Space refers to a situation, where the publisher and subscriber does not know each other.
@@ -13,8 +12,8 @@ When speaking about decoupling, either in space, time, or flow, it's a question 
  When the publisher and subscriber works asynchronous, they are decoupled in time.
 \end{description}
 
-\subsection{Middleware types and decoupling}
-Different types of \emph{middlware} exists. \ref{DeInPa} shows a small part of the different types of \emph{middleware} that exists.
+\subsection{MW types and decoupling}
+Different types of MW exists. \ref{DeInPa} shows a small part of the different types of \emph{middleware} that exists.
 Below are explained, three different types, whether or not they decouple in space, time, or flow; \emph{RPC/RMI}, \emph{Notification(Observer D. Pattern)}, and \emph{Publish/Subscribe}.
 
 \begin{figure}[ht!]
