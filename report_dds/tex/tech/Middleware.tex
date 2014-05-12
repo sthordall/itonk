@@ -17,7 +17,13 @@ As described above, the Android operating system provides a \emph{middleware} la
 
 \subsection{The interface description language}
 Middleware use the interface description language (or alternatively, interface definition language), or IDL for short, is a specification language used to describe a software component's interface. IDLs describe an interface in a language-independent way, enabling communication between software components that do not share a language – for example, between components written in C++ and components written in Java.
-[[[[[[[[[[[[FIGUR AF IDL]]]]]]]]]]]]]
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=150mm]{img/IDL.png}
+\caption{IDL example}
+\label{IDL}
+\end{figure}
 
 RTI Connext may function as communication layer between the different nodes. Since the \emph{middleware} hides the communication medium from the nodes, the concern of data transportation and distribution is handled by RTI Connext.
 Since the RTI Connext is a cross platform and language agnostic, the system will function holisticly across all nodes in the distributed system; and will especially shine in a multi-platform/multi-language environment.
