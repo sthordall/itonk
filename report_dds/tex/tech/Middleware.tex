@@ -6,16 +6,16 @@ Middleware has the benefits as:
 \item Scalable.
 \item Real-time.
 \item Dependable.
-\begin{itemize}
+\end{itemize}
 
 There are many applications that needs the advantage of \emph{middleware} such as financial trading, air traffic control, and other big data application.
 
-[NYT AFSNIT]
+\subsection{Example of Android using \emph{middleware}}
 The Android operating system uses the Linux kernel at its core, and also provides an application framework that developers incorporate into their applications. In addition, Android provides a \emph{middleware} layer including libraries that provide services such as data storage, screen display, multimedia, and web browsing. Because the \emph{middleware} libraries are compiled to machine language, services execute quickly. Middleware libraries also implement device-specific functions, so applications and the application framework need not to concern themselves with variations between various Android devices. Android’s \emph{middleware} layer also contains the Dalvik virtual machine and its core Java application libraries. - from wiki [footnote]
 
 As described above, the Android operating system provides a \emph{middleware} layer between the applications running on the system and the hardware/drivers. For instance, if the phone is running low on battery, the battery driver will publish a message through the \emph{middleware} regarding this. It is then in the hands of the running applications to subscribe to this message and deal with it, if it is in their interests. Thus, it can be said to be a publisher/subscriber scheme.
 
-[NYT AFSNIT]
+\subsection{The interface description language}
 Middleware use the interface description language (or alternatively, interface definition language), or IDL for short, is a specification language used to describe a software component's interface. IDLs describe an interface in a language-independent way, enabling communication between software components that do not share a language – for example, between components written in C++ and components written in Java.
 [[[[[[[[[[[[FIGUR AF IDL]]]]]]]]]]]]]
 
