@@ -1,0 +1,52 @@
+%Report template by Christian Fischer Pedersen for IT-ONK
+%--------------------------------------------------------
+
+%Page layout
+%--------------------------------------------------------
+\documentclass[a4paper,10pt]{report}
+\usepackage{fancyhdr}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+%Text typesetting
+%--------------------------------------------------------
+\usepackage{bookman}                  
+\usepackage[T1]{fontenc}              
+\usepackage[utf8]{inputenc}         
+\usepackage[english]{babel}        
+\usepackage[bf,small,raggedright,compact]{titlesec}
+\usepackage[parfill]{parskip}
+\usepackage{setspace}
+\setcounter{secnumdepth}{3}
+
+%Tables
+%----------------------------------------------------------
+\usepackage{tabularx}
+\usepackage{multirow} 
+\usepackage{multicol} 
+\usepackage{booktabs}
+
+%Misc
+%----------------------------------------------------------
+\usepackage{cite}
+\usepackage{appendix}
+\usepackage{amssymb}
+\usepackage{url}
+
+%Begin document
+%----------------------------------------------------------
+\begin{document}
+
+%Document inputs
+%----------------------------------------------------------
+\input{tex/titlepage.tex}
+\input{tex/abstract.tex}
+\input{tex/toc.tex}
+\input{tex/introduction.tex}
+\input{tex/technologies.tex}
+\input{tex/prototype.tex}
+\input{tex/conclusion.tex}
+\input{tex/bibliography.tex}
+
+%End document
+%----------------------------------------------------------
+\end{document}
