@@ -1,8 +1,9 @@
 \section{Publish/Subscribe}
-Publish/Subscribe within DDS, is split between the sending and the receiving part. This helps separate to the parts, since the receiver only needs to know what data is being communicated.
+Publish/Subscribe within DDS is split between the sending and the receiving part. This helps separate to the parts, since the receiver only needs to know what data is being communicated.
 
 \subsection{Space, time, and flow decoupling}
-When speaking about decoupling, either in space, time or flow, it's a question about how coupled the producer and the consumer are in the different subjects.
+When speaking about decoupling, either in space, time, or flow, it's a question about how coupled the producer and the consumer are in the different subjects.
+
 \begin{description}
  \item[Space decoupling] \hfill \\
  Space refers to a situation, where the publisher and subscriber does not know each other.
@@ -12,8 +13,8 @@ When speaking about decoupling, either in space, time or flow, it's a question a
  When the publisher and subscriber works asynchronous, they are decoupled in time.
 \end{description}
 
-\subsection{MW types and decoupling}
-Different types of MW exists. \ref{DeInPa} shows a small part of the different types of \emph{middleware} that exists.
+\subsection{Middleware types and decoupling}
+Different types of \emph{middlware} exists. \ref{DeInPa} shows a small part of the different types of \emph{middleware} that exists.
 Below are explained, three different types, whether or not they decouple in space, time, or flow; \emph{RPC/RMI}, \emph{Notification(Observer D. Pattern)}, and \emph{Publish/Subscribe}.
 
 \begin{figure}[ht!]
@@ -41,5 +42,5 @@ When using Publish/Subscribe, the Subscriber can subscribe to the publishers mes
     \item[Content based] \hfill \\
  The Subscriber sets up a filter and only receives the messages that matches the filter with its keywords. It could be languages or many other.
     \item[Type based] \hfill \\
- The type based filter is a scheme that filters according to event types. Types could be such as...........[MISSING]
+ The type based filter is a scheme that filters according to event types. They translate directly to the type of events. Types could be such as stock quotes or stock requests.
  \end{description} 
