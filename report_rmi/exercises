@@ -1,0 +1,31 @@
+Exercises - Java Remote Method Invocation
+
+Java RMI
+  --- Sam ---
+  1. What is a Java Virtual Machine (JVM)?
+  2. What is a remote object?
+  3. What is Remote Method Invocation (RMI) and what is the purpose of RMI?
+
+  --- Jakob ---
+  4. Explain brieﬂy the three main layers in the RMI architecture, i.e.
+     - Stub and skeleton layer
+     - Remote Reference layer
+     - Transport layer
+  5. What is a remote interface?
+
+  --- Cong ---
+  6. What is serialization?
+  7. What is a RMI Registry?
+
+Leader Election
+  --- Stephan ---
+  1. Why is leader election relevant in distributed systems?
+  2. Does leader election entail a computational, network, and time burden?
+     - Why is it relevant to minimize a potential burden?
+     - How is the big O notation wrt. message passing a measure of such a      burden?
+
+  --- Kasper ---
+  3. Outline the standard Bully election algorithm
+  4. Outline the standard Ring election algorithm
+     - Propose an improvement to one of the algorithms
+     - Argue for the improvement in terms of message passing complexity using the big O notation
