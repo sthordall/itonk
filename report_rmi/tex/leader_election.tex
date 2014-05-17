@@ -1,0 +1,11 @@
+\section{Leader election}
+\subsection{Relevance in distributed systems}
+In distributed systems a leader role is often designated to a single node/proces. This node will often have the responsibility to coordinate, initiate and assign processing and tasks to the other nodes in the distributed system; and this is an attractive feature, since it eases synchronization, communication and delegation.
+However, a leader is a single point of failure, and therefore the system needs to be prepared to reselect a new leader.
+Leader election is the proces of selecting this leader, both when initiating the system, and when a leader fails.
+This is often difficult, since all nodes in the system has to cooperate, and elect the appropriate new leader.
+
+\subsection{Burden}
+If not handled correctly, leader election can draw a signifigant amount on both processing power and network, which results in a waste of resources and a slower distributed system. Algorithms can optimize efficiency and time used for a leader election, by minimizing messages sent between nodes on the network.
+By minimizing the potential burden on network, time and computation the system will become both faster and more effective.
+The big O notation can be used to analyze an algorithms complexity. By analyzing the amount of messages passed in the system for each algorithm, we can choose the most appropriate one and hereby reduce the burden on the system.
