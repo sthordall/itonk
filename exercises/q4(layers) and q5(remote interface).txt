@@ -1,0 +1,21 @@
+--- Jakob ---
+4. Explain briefly the three main layers in the RMI architecture, i.e. \ref{http://publib.boulder.ibm.com/infocenter/javasdk/v5r0/index.jsp?topic=%2Fcom.ibm.java.doc.diagnostics.50%2Fdiag%2Funderstanding%2Frmi_implementation.html}
+
+- Stub and skeleton layer
+
+The stub and skeleton layer, is the "communication" between the client object, and the remote object. This is where the call gets serialized, and again deserialized. This layer holds the reference that the object gets, when calling for a method. The stubs and skeletons are compiler created.
+
+- Remote Reference layer
+
+This layer manages the client server connections via tcp/ip. It creates a data transmission through a stream oriented connection.
+
+- Transport layer
+
+Works through a TCP/IP connection, and provides the basic connectivity, such as listening for calls, managing requests, and providing some firewall strategies.
+
+5. What is a remote interface?
+
+A Remote interface is used to create a remote object. An object is remote by implementing the Remote interface. To make it remote, the interface must extend the \special{java.rmi.Remote}. When dealing with a \special{throws} clause in a method, it must as well declare \special{java.rmi.RemoteException}, in addition to any other exception.\\
+
+The remote object will now be treated as a stub, by the RMI. The stub of the object acts as a local representative to the client, and basically is a remote reference.
+
