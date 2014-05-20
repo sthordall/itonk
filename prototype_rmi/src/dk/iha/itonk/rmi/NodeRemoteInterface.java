@@ -15,23 +15,23 @@ public interface NodeRemoteInterface extends Remote {
   *  Function called by node when initiating an election, recipiant node returns
   *  'OK'
   */
-  public String election(int callingNodeId) throws RemoteException;
+  public String startElection(int callingNodeId) throws RemoteException;
 
   /**
   *  Function called by newly elected leader, to notify about new role as leader
   *  Node returns 'OK'
   */
-  public String coordinate(int leaderId) throws RemoteException;
+  public String declareLeader(int leaderId) throws RemoteException;
 
   /**
   *  Called by newly registered node to get leaderId
   */
-  public int getLeader(int callingNodeId);
+  public int getLeader() throws RemoteException;
 
   /**
   *  Called by leader on nodes, to deliver message. Nodes respond with 'OK'
   */
-  public String deliverMessage(String messageToSupply);
+  public String deliverMessage(String message) throws RemoteException;
 
 /*____________________________________________________________________________*/
 /*                           LEADER SPECIFIC FUNCTIONS                        */
@@ -41,11 +41,11 @@ public interface NodeRemoteInterface extends Remote {
   *  Called by nodes on leader, takes message and publishes to rest of
   *  nodes in system. Leader returns 'OK'.
   */
-  public String publishMessage(String messageToPublish);
+  public String publishMessage(String message) throws RemoteException;
 
   /**
   *  Called by new node on leader, to register. Leader returns assigned ID.
   */
-  public int Register()
+  public int Register() throws RemoteException;
 
 }
