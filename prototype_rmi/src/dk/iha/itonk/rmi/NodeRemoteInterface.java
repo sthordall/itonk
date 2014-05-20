@@ -8,22 +8,34 @@ import java.rmi.RemoteException;
 */
 public interface NodeRemoteInterface extends Remote {
 
+/*____________________________________________________________________________*/
+/*                                NODE FUNCTIONS                              */
+/*____________________________________________________________________________*/
   /**
   *  Function called by node when initiating an election, recipiant node returns
   *  'OK'
   */
-  public String election(String callingNodeId) throws RemoteException;
+  public String election(int callingNodeId) throws RemoteException;
 
   /**
   *  Function called by newly elected leader, to notify about new role as leader
   *  Node returns 'OK'
   */
-  public String coordinate(String leaderId) throws RemoteException;
+  public String coordinate(int leaderId) throws RemoteException;
 
   /**
-  *  Called by newly registered node to get leader
+  *  Called by newly registered node to get leaderId
   */
-  public String getLeader(String callingNodeId);
+  public int getLeader(int callingNodeId);
+
+  /**
+  *  Called by leader on nodes, to deliver message. Nodes respond with 'OK'
+  */
+  public String deliverMessage(String messageToSupply);
+
+/*____________________________________________________________________________*/
+/*                           LEADER SPECIFIC FUNCTIONS                        */
+/*____________________________________________________________________________*/
 
   /**
   *  Called by nodes on leader, takes message and publishes to rest of
@@ -32,8 +44,8 @@ public interface NodeRemoteInterface extends Remote {
   public String publishMessage(String messageToPublish);
 
   /**
-  *  Called by leader on nodes, to deliver message. Nodes respond with 'OK'
+  *  Called by new node on leader, to register. Leader returns assigned ID.
   */
-  public String deliverMessage(String messageToSupply);
+  public int Register()
 
 }
