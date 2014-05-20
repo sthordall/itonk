@@ -13,6 +13,13 @@ The main advantage of this system is the increased compatibility. Since your app
 \subsection{RMI architecture layers}
 The RMI architecture contains three different layers \footnote{http://publib.boulder.ibm.com/infocenter/javasdk/v5r0/index.jsp?\\topic=\%2Fcom.ibm.java.doc.diagnostics.50\%2Fdiag\%2Funderstanding\%2Frmi\_implementation.html}
 
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=100mm]{img/RMI_layer.png}
+\caption{The RMI layers; Stub and skeleton, Remote reference and Transport layer}
+\label{Remote Layers}
+\end{figure}
+
 \begin{description}
  \item[Stub and skeleton layer] \hfill \\
 The stub and skeleton layer, is the "communication" between the client object, and the remote object. This is where the call gets serialized, and again deserialized. This layer holds the reference that the object gets, when calling for a method. The stubs and skeletons are compiler created.
