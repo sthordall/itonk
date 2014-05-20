@@ -9,3 +9,31 @@ This is often difficult, since all nodes in the system has to cooperate, and ele
 If not handled correctly, leader election can draw a signifigant amount on both processing power and network, which results in a waste of resources and a slower distributed system. Algorithms can optimize efficiency and time used for a leader election, by minimizing messages sent between nodes on the network.
 By minimizing the potential burden on network, time and computation the system will become both faster and more effective.
 The big O notation can be used to analyze an algorithms complexity. By analyzing the amount of messages passed in the system for each algorithm, we can choose the most appropriate one and hereby reduce the burden on the system.
+
+\subsection{Algorithm}
+
+\subsubsection{Bully election algorithm}
+When a process notices that the coordinator unexpectedly crashes and/or no longer responding to its requests, it initiates an election.
+During the election phase, the process which holds the election, will notify by sending an ELECTION message, only to processes with higher ID numbers than its own.
+
+At any moment a process can receive an ELECTION message from one of its own lower-numbered colleagues, and when such a message is received, it will respond back to the sender with an OK message to indicate that it is alive and will then hold the election, unless it is already holding one.
+
+The election phase finishes after, a repetition of sending and holding the election, till the one process with the highest ID number holds the election.
+
+The winner of the election is the one process with the highest ID number, and will be taken over the role as the new coordinator, and notifies all other processes with a message stating its role as the new coordinator. 
+
+At any given time, when a process which had a downtime becomes operational, it will hold the election.
+And yet again, the election phase will finish till the one process with highest ID number holds the election. So if the awaken process happens to have the highest ID number of all processes, it will become the winner of the election and take over the role as the coordinator. Hence the name “Bully election” because the one who plays the game right is also the one who sits on the throne.
+
+\subsubsection{Bully election algorithm}
+In order for this algorithm to make sense, an assumption has to be made, that the processes has to be either physically or logically ordered, so that each process is able to identify its successor.
+When a process notices that the current coordinator for some reason is not operational, it will send out an ELECTION message, which in the message contains the process own ID number. The message will be sent to its successor. 
+If the successor is down, the sender skips over the broken successor, and persist the message to the next member according to the ordering. The receiver of the message will then add its own ID number to the list and send it to its successor. This is repeated till it gets back to the original process which started the circulation of message, which is identified by the list of ID numbers.
+The original sender of the ELECTION message will then change the type of message from ELECTION to COORDINATOR, and circulate the message yet again, but this time, the message is responsible:
+
+\begin{itemize}
+  \item Stating that the one with the highest ID number in the list, is the new coordinator
+  \item Update the ring with processes which is alive and functional upon ELECTION phase
+\end{itemize}
+
+When the message has been circulated around to all members from the list, the election phase finishes and the system resume its work.
