@@ -10,12 +10,8 @@ import java.rmi.RemoteException;
 public interface PublisherRemoteInterface extends Remote {
 
   /**
-  *  Used by subscriber nodes wishing to subscribe to movie news
+  *  Used by leader to assign subscriber nodes wishing to subscribe
   */
-  void subscribeMovieNews(string subscriberId) throws RemoteException;
+  void subscribeNews(string subscriberId) throws RemoteException;
 
-  /**
-  * Used by subscriber nodes wishing to subscribe to tech news
-  */
-  void subscribeTechNews(string subscriberId) throws RemoteException;
 }

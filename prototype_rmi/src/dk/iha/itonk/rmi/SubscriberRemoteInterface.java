@@ -9,12 +9,8 @@ import java.rmi.RemoteException;
 public interface SubscriberRemoteInterface extends Remote {
 
   /**
-  *  Function called by publisher, to publish movie news to subscriber
+  *  Function called by publisher, to publish news to subscriber
   */
-  void publishMovieNews(string movieNews) throws RemoteException;
+  void publishNews(string news) throws RemoteException;
 
-  /**
-  *  Function called by publisher, to publish tech news to subscriber
-  */
-  void publishTechNews(string techNews) throws RemoteException;
 }
