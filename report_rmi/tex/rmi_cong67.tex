@@ -1,0 +1,23 @@
+\subsection{Serialization}
+Serialization is the process of converting a set of object instances that contain references to each other into a linear stream of bytes, which can then be sent through a socket, stored to a file, or simply manipulated as a stream of data. Serialization is the mechanism used by RMI to pass objects between JVMs, either as arguments in a method invocation from a client to a server or as return values from a method invocation. \cite{JavaRMIOreilly}
+
+There are three basic things you must do when you are making a class serializable. They are:
+
+\begin{itemize}
+    \item Implement the \texttt{java.io.Serializable} interface.
+    \begin{itemize}
+        \item The Serializable interface is an empty interface; it declares no methods at all.
+    \end{itemize}
+    \item Make sure that instance-level, locally defined state is serialized properly.
+    \begin{itemize}
+        \item Class definitions contain variable declarations. The instance-level, locally defined variables (e.g., the nonstatic variables) are the ones that contain the state of a particular instance.
+    \end{itemize}
+    \item Make sure that superclass state is serialized properly.
+    \begin{itemize}
+        \item If the superclass implements the Serializable interface, then you don't need to do anything.
+    \end{itemize}
+\end{itemize}
+
+\subsection{RMI Registry}
+
+The RMI Registry is a remote object which provides basic name server functionality. The \texttt{rmiregistry} provided in JDK is a shell script which invokes \texttt{RegistryImpl}, an implementation of such a registry. Two methods provided by the registry are of special interest to us: \texttt{bind()} and \texttt{lookup()} for registering and locating a server object, respectively. The existing RMI registry successfully binds a server object only if it is local to its machine. In the absence of a network-wide directory service, this means either that client applications must have a prior knowledge of the host running each server they might contact, or that all servers must run on a single well-known host. \cite{NetworkComputingWithJavaApplets}
