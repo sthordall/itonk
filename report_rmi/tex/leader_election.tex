@@ -27,8 +27,11 @@ And yet again, the election phase will finish till the one process with highest 
 
 \subsubsection{Bully election algorithm}
 In order for this algorithm to make sense, an assumption has to be made, that the processes has to be either physically or logically ordered, so that each process is able to identify its successor.
+
 When a process notices that the current coordinator for some reason is not operational, it will send out an ELECTION message, which in the message contains the process own ID number. The message will be sent to its successor. 
+
 If the successor is down, the sender skips over the broken successor, and persist the message to the next member according to the ordering. The receiver of the message will then add its own ID number to the list and send it to its successor. This is repeated till it gets back to the original process which started the circulation of message, which is identified by the list of ID numbers.
+
 The original sender of the ELECTION message will then change the type of message from ELECTION to COORDINATOR, and circulate the message yet again, but this time, the message is responsible:
 
 \begin{itemize}
