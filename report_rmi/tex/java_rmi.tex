@@ -11,17 +11,17 @@ When a Java project is build, it translates the source code to Java bytecode. Th
 The main advantage of this system is the increased compatibility. Since your applications run in a virtual machine instead of directly on your hardware, the developer can program and build their application once, which can then be executed on every device with an implementation of the JVM.
 
 \subsection{RMI architecture layers}
-The RMI architecture contains three different layers %\footnote{http://publib.boulder.ibm.com/infocenter/javasdk/v5r0/index.jsp?topic=\%2Fcom.ibm.java.doc.diagnostics.50\%2Fdiag\%2Funderstanding\%2Frmi_implementation.html}
+The RMI architecture contains three different layers \footnote{http://publib.boulder.ibm.com/infocenter/javasdk/v5r0/index.jsp?\\topic=\%2Fcom.ibm.java.doc.diagnostics.50\%2Fdiag\%2Funderstanding\%2Frmi\_implementation.html}
 
 \begin{description}
- \item{Stub and skeleton layer} \hfill \\
+ \item[Stub and skeleton layer] \hfill \\
 The stub and skeleton layer, is the "communication" between the client object, and the remote object. This is where the call gets serialized, and again deserialized. This layer holds the reference that the object gets, when calling for a method. The stubs and skeletons are compiler created.
 
- \item{Remote Reference layer} \hfill \\
+ \item[Remote Reference layer] \hfill \\
 
 This layer manages the client server connections via tcp/ip. It creates a data transmission through a stream oriented connection.
 
- \item{Transport layer} \hfill \\
+ \item[Transport layer] \hfill \\
 
 Works through a TCP/IP connection, and provides the basic connectivity, such as listening for calls, managing requests, and providing some firewall strategies.
 \end{description}
