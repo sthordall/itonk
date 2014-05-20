@@ -1,0 +1,12 @@
+\begin{thebibliography}{9}
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\bibitem{JavaRMIOreillySerialization} William Grosso \emph{Java RMI},  October 2001, available at 
+\url{http://oreilly.com/catalog/javarmi/chapter/ch10.html}.
+
+\bibitem{NetworkComputingWithJavaApplets}
+Baratloo, Arash, et al. "An infrastructure for network computing with Java applets." Concurrency Practice and Experience 10.11-13 (1998): 1029-1041.
+
+
+
+\end{thebibliography}
