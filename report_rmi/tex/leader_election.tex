@@ -40,3 +40,28 @@ The original sender of the ELECTION message will then change the type of message
 \end{itemize}
 
 When the message has been circulated around to all members from the list, the election phase finishes and the system resume its work.
+
+\subsubsection{Improved version of Bully election algorithm}
+
+Bully election algorithm is simple and fault tolerant, and therefore commonly used in a distributed system. Considering the algorithm, for each process in a system, there is a high occurrence of message passing between processes during the election phase, which results in a higher traffic on the communication channels, and will be amplified with queuing due to traffic overflow. In short the Bully election algorithm is prone to a higher response time within a distributed system.
+
+The classic Bully election algorithm has another flaw. Consider a situation where a process that is designated as the coordinator unexpectedly becomes unavailable and out of function, which results in an election phase as mentioned earlier.
+
+During the election phase, a process joins the group and becomes part of the election phase and also happens to be a higher-numbered process than the previous coordinator. It will therefore also take the role as the new coordinator and the system resumes its ongoing job. 
+
+Consider the event, where the previous coordinator becomes available again, and the election phase will occur yet again, and it will elect itself as the new coordinator because it has no update on the newly joined process that also happens to be a higher numbered process. There will be 2 coordinators; 1 one of them is neglected and is not being reached, and this faulty will persist till a new election phase begins.
+To overcome this situation, an alternative to the classic Bully election algorithm, can be implemented, and is named Fast Bully election algorithm.
+
+In short what it does to overcome the situation where another process joins the group of processes, is to add different types of message, but in this case, a view message is introduced.
+What it does it that when a process is recovered from the downtime, it will also receive a view message that updates all processes in the group and also those newly joined. 
+
+The figure propose the difference between the classic Bully Algorithm to the Fast Bully Algorithm with use of Big O notation.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=100mm]{img/big_o_notation_overview_for_BA.png}
+\caption{Difference between Bully Algorithm and Fast Bully Algorithm with use of big o notation}
+\end{figure}
+
+
