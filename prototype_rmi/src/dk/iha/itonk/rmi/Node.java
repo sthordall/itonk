@@ -16,6 +16,7 @@ public class Node implements NodeRemoteInterface {
   public Integer LEADER_ID = 0;
 
   public Boolean isLeader;
+  private Boolean isElecting;
   private Registry registry;
   private Node leader;
   private Stack<Integer> deadNodes;
@@ -27,13 +28,43 @@ public class Node implements NodeRemoteInterface {
   public Node(Registry rmiregistry) {
     registry = rmiregistry;
     isLeader = false;
+    isElecting = false;
   }
 
 /*____________________________________________________________________________*/
 /*                               ELECTION METHODS                             */
 /*____________________________________________________________________________*/
 
+  public String bullyElection() {
+    if(isLeader) {
+      System.out.println("Do not start election, already leader");
+      becomeLeader();
+    } else {
+      isElecting = true;
+      Integer count = 0;
 
+      for(Integer id = (NODE_ID + 1); id <= LEADER_ID ; id++) {
+        try {
+            NodeRemoteInterface stub = (NodeRemoteInterface) registry
+            .lookup(id.toString());
+            String response = stub.startElection(NODE_ID);
+
+            if(response.equals("OK")) {
+              System.out.println("Election sent to: " + id.toString());
+              count++;
+            }
+          } catch (Exception e) {
+            System.out.println("Could not deliver election to node " + id);
+        }
+      }
+
+      if(count == 0) {
+        System.out.println("Election done, this node is new leader.");
+        becomeLeader();
+      }
+    }
+    return "OK";
+  }
 
 
 
@@ -104,6 +135,7 @@ public class Node implements NodeRemoteInterface {
 
   public void becomeLeader() {
     System.out.println("Became leader");
+    isElecting = false;
     isLeader = true;
     LEADER_ID = NODE_ID;
     deadNodes = new Stack<Integer>();
@@ -152,12 +184,14 @@ public class Node implements NodeRemoteInterface {
 /*____________________________________________________________________________*/
 
   public String startElection(int callingNodeId) throws RemoteException {
-    return "OK";
+    System.out.println("Election received from: " + callingNodeId);
+    return bullyElection();
   }
 
   public String declareLeader(int leaderId) throws RemoteException {
     LEADER_ID = leaderId;
     isLeader = false;
+    isElecting = false;
     if(LEADER_ID == NODE_ID) {
       becomeLeader();
     } else {
