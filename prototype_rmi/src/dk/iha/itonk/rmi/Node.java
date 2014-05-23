@@ -169,15 +169,17 @@ public class Node implements NodeRemoteInterface {
 
     for(Integer id = 1; id < LEADER_ID ; id++) {
       try {
-        NodeRemoteInterface stub = (NodeRemoteInterface) registry
-        .lookup(id.toString());
-        String response = stub.deliverMessage(message);
-        if(response != "OK") {
-          deadNodes.push(id);
+        if(deadNodes.search(id) == -1) {
+          NodeRemoteInterface stub = (NodeRemoteInterface) registry
+          .lookup(id.toString());
+          String response = stub.deliverMessage(message);
+
+          if(response != "OK") {
+            deadNodes.push(id);
+          }
         }
       } catch (Exception e) {
-        System.out.println("An Exception occured on node " + id + " : "
-        + e.getMessage());
+        System.out.println("An Exception occured on node " + e.getMessage());
         deadNodes.push(id);
       }
     }
