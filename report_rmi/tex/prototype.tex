@@ -1,41 +1,92 @@
 \chapter{Prototype}
-This chapter should contain an in-depth description of prototyping
-with the technology, i.e. DNS, DDS, or RMI. That is, you analyze,
-design, implement, and test
-\begin{itemize}
-\item a very limited, but functional prototype that utilizes the
-  technology under consideration.
-\end{itemize}
+The prototype consist of an RMI distributed application, which contains the necessary functionality; registering remote objects in a registry in which clients are able to invoke these registered objects remotely.
 
-You define your own prototype and the context in which it should
-function; the list below is for your inspiration.
+To further enhance the capability of anRMI distributed application, the prototype is implemented with 2 different algorithms, Bully Election Algorithm and Ring Election Algorithm.
 
-\begin{itemize}
-\item Domain Name System: A public school or a medium sized company
-  would like to host their own DNS and/or forward requests to OpenDNS.
-\item Data Distribution Service: A hospital or a production factory
-  would like to employ Connext DDS to distribute mission critical
-  data.
-\item Java Remote Method Invocation: A company is setting up
-  facilities, e.g. parcel or luggage sorters, abroad and would like to
-  be able to access back-end methods and data at home.
-\end{itemize}
+Such leader elections, allows for an ongoing distribution of data even when a client/server terminates within in a DDS is terminated, allowing fault tolerance.
 
-In your analysis you should at least address and/or include
+This chapter describes the process of implementing the prototype, and at the end, evaluating the algorithms within the RMI application.
 
-\begin{itemize}
-\item Overall diagram and description of the prototype
-\item Relevance of the technology under consideration to your prototype
-\item How the technology is included in your prototype
-\item Definition of a small set of realistic use-cases and related
-  functional requirements
-\end{itemize}
+\subsection{Analysis}
+During the analysis phase, we took in notes about the fundamentals of RMI applications and devised a simple strategy of implmenting the distributed application, by taking the guide into consideration, given by Oracle's introduction to RMI, and the given requirements for the application.
 
-The design, implementation, and test should at least address and/or include:
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=80mm]{img/analyze_diagram.png}
+\caption{Analyzing phase - diagram overview.}
+\label{Analyzing phase}
+\end{figure}
 
-\begin{itemize}
-\item Diagrams, e.g. UML, supplemented with code snippets of most important parts
-\item Test and evaluation of your system: Does it work as intended?
-\item Evaluation of the prototype and the technology employment as a
-  whole
-\end{itemize}
+\subsection{Implementation}
+For the implementation of the RMI application, it consist of 3 java classes, as seen on Figure 3.2. The NodeRemoteInterface.java extends the Remote to allow allocation of remote methods for implementation of the remote objects, namely, Node.java. 
+
+Node.java contains methods that allows for registering of the node, and specify the election procedure. Further more the nodes required to extends its capabilities by extending the election procedure to follow a certain algorithm, namely Bully Algorithm and Ring Algorithm.
+
+The Program.java is the program itself to execute and register the node to RMI registry and for the purpose of testing the RMI application by explicit sending messages and test the different Leader Election; Bully Algorithm and Ring Algorithm.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=80mm]{img/Implementation_uml_diagram.png}
+\caption{Implementation of RMI - UML diagram.}
+\label{Implementation of RMI - UML diagram}
+\end{figure}
+
+\subsubsection{Implementation of Bully Algorithm}
+Codesnippet of Bully Algorithm.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=80mm]{img/bully_election_code.png}
+\caption{Codesnippet of Bully Algorithm}
+\label{Codesnippet of Bully Algorithm}
+\end{figure}
+
+\subsubsection{Implementation of Ring Algorithm}
+Codesnippet of Ring Algorithm.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=80mm]{img/ring_election_code.png}
+\caption{Codesnippet of Ring Algorithm}
+\label{Codesnippet of Ring Algorithm}
+\end{figure}
+
+\subsection{Test}
+
+The Figure, shows the execution of starting different nodes and handing out node ID for each incoming nodes that joins the RMI application. Further more for each addition of nodes, it handles the election procedure and always give the highest ID node the leader role.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=80mm]{img/starting_nodes.png}
+\caption{Test of starting nodes}
+\label{Test of starting Nodes}
+\end{figure}
+
+The next Figure shows the improved version of leader election, namely, Bully Election, and is working as intended, as when the leader stops responding, the election procedure begins and finishes by aquiring the leader to the highest ID number node.
+
+\begin{figure}[ht!]
+\centering
+\caption{Test of Bully Election}
+\includegraphics[width=80mm]{img/bully_election_messages.png}
+\label{Test of Bully Election}
+\end{figure}
+
+The next Figure shows the Ring election, with the procedure of giving an election for a nodes next successor in regard to its ID number. As seen on the message, a node is skipped because of a broken node and the next node is notified with the election, and each node has then been giving an updated list of nodes that is online.
+
+\begin{figure}[ht!]
+\centering
+\caption{Test of starting nodes}
+\includegraphics[width=80mm]{img/ring_election_messages.png}
+\label{Test of Ring Election}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
