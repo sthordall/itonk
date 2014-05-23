@@ -25,7 +25,7 @@ The RMI architecture contains three different layers \footnote{http://publib.bou
 
 \begin{description}
  \item[Stub and skeleton layer] \hfill \\
-The stub and skeleton layer, is the "communication" between the client object, and the remote object. This is where the call gets serialized, and again deserialized. This layer holds the reference that the object gets, when calling for a method. The stubs and skeletons are compiler created.
+The stub\ref{Remote Layers} and skeleton layer, is the "communication" between the client object, and the remote object. This is where the call gets serialized, and again deserialized. This layer holds the reference that the object gets, when calling for a method. The stubs and skeletons are compiler created.
 
  \item[Remote Reference layer] \hfill \\
 This layer manages marshalling and unmarshalling the data, that are handled down from the above layer. It creates a data transmission through a stream oriented connection.
