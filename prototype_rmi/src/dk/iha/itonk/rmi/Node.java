@@ -72,6 +72,40 @@ public class Node implements NodeRemoteInterface {
     return "OK";
   }
 
+  public String ringElection(Integer fromId) {
+    if(isLeader) {
+      System.out.println("Do not start election, already leader");
+      becomeLeader();
+    } else {
+      isElecting = true;
+      Integer id = NODE_ID + 1;
+      Boolean isVotePassed = false;
+      System.out.println("Election received from node " + fromId );
+      while(isVotePassed == false && isElecting == true) {
+        try {
+          NodeRemoteInterface stub = (NodeRemoteInterface) registry
+          .lookup(id.toString());
+
+          String response = stub.startElection(NODE_ID);
+
+          if(response.equals("OK")) {
+            System.out.println("Election sent to: " + id.toString());
+            isVotePassed = true;
+          }
+        } catch (Exception e) {
+          System.out.println("Could not deliver election to node " + id);
+          System.out.println("Trying next node in ring");
+          id++;
+          if(id > LEADER_ID) {
+            isVotePassed = true;
+            becomeLeader();
+          }
+        }
+      }
+    }
+    return "OK";
+  }
+
 
 
 /*____________________________________________________________________________*/
@@ -200,7 +234,8 @@ public class Node implements NodeRemoteInterface {
       System.out.println("Election received from: " + callingNodeId);
     }
 
-    return bullyElection();
+    //return bullyElection();
+    return ringElection(callingNodeId);
   }
 
   public String declareLeader(int leaderId) throws RemoteException {
