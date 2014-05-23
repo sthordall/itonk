@@ -177,7 +177,7 @@ public class Node implements NodeRemoteInterface {
           NodeRemoteInterface stub = (NodeRemoteInterface) registry
           .lookup(id.toString());
           String response = stub.deliverMessage(message);
-          System.out("Message delivered to: " + id.toString());
+          System.out.println("Message delivered to: " + id.toString());
         }
       } catch (Exception e) {
         System.out.println("Could not deliver message to node " + id +
