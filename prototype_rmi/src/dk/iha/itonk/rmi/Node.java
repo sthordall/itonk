@@ -29,13 +29,90 @@ public class Node implements NodeRemoteInterface {
     isLeader = false;
   }
 
+/*____________________________________________________________________________*/
+/*                            NODE INITIALIZATION                             */
+/*____________________________________________________________________________*/
+
+  public void findLeader() {
+    Integer incrementalId = 0;
+
+    //Lookup and find incremently
+    while(LEADER_ID == 0) {
+      incrementalId++;
+      try {
+        NodeRemoteInterface stub = (NodeRemoteInterface) registry
+        .lookup(incrementalId.toString());
+
+        LEADER_ID = stub.getLeader();
+
+        //If tried id's from 1-10, declare leadership.
+
+      } catch (Exception e) {
+        System.out.println("No node on id " + e.getMessage());
+      }
+
+      if(incrementalId == 10) {
+        System.out.println("No leader found, declaring node as leader");
+        NODE_ID = 1;
+        try {
+          declareLeader(NODE_ID);
+        } catch (Exception e) {
+          System.out.println("An Exception occured: " + e.getMessage());
+        }
+
+      }
+    }
+  }
+
+  public void registerNode() {
+    try {
+      NodeRemoteInterface stub = (NodeRemoteInterface) UnicastRemoteObject
+      .exportObject(this, 0);
+
+      if(isLeader) {
+        registry.bind(NODE_ID.toString(), stub);
+      } else {
+        NodeRemoteInterface leader = (NodeRemoteInterface) registry
+        .lookup(LEADER_ID.toString());
+
+        NODE_ID = leader.register();
+        registry.bind(NODE_ID.toString(), stub);
+        if(NODE_ID > LEADER_ID) {
+          becomeLeader();
+        }
+      }
+
+      System.out.println("Node up and running - ID: " + NODE_ID);
+
+    } catch (Exception e) {
+      System.out.println("An Exception occured: " + e.getMessage());
+      e.printStackTrace();
+    }
+  }
 
   public void becomeLeader() {
     System.out.println("Became leader");
     isLeader = true;
     LEADER_ID = NODE_ID;
     deadNodes = new Stack<Integer>();
+
+    for(Integer id = 1; id < LEADER_ID ; id++) {
+      try {
+        NodeRemoteInterface stub = (NodeRemoteInterface) registry
+        .lookup(id.toString());
+        String response = stub.declareLeader(LEADER_ID);
+        if(response != "OK") {
+          deadNodes.push(id);
+        }
+      } catch (Exception e) {
+        System.out.println("An Exception occured on node " + id + " : "
+        + e.getMessage());
+        deadNodes.push(id);
+      }
+    }
+
   }
+
 /*____________________________________________________________________________*/
 /*                           INTERFACE IMPLEMENTATIONS                        */
 /*                                NODE FUNCTIONS                              */
@@ -47,6 +124,7 @@ public class Node implements NodeRemoteInterface {
 
   public String declareLeader(int leaderId) throws RemoteException {
     LEADER_ID = leaderId;
+    isLeader = false;
     if(LEADER_ID == NODE_ID) {
       becomeLeader();
     }
@@ -95,6 +173,8 @@ public class Node implements NodeRemoteInterface {
     }
 
     if(deadNodes.empty()) {
+
+
       return NODE_ID + 1;
     } else {
       return deadNodes.pop();
