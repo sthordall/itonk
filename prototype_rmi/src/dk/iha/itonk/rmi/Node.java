@@ -76,6 +76,7 @@ public class Node implements NodeRemoteInterface {
         .lookup(LEADER_ID.toString());
 
         NODE_ID = leader.register();
+
         registry.bind(NODE_ID.toString(), stub);
         if(NODE_ID > LEADER_ID) {
           becomeLeader();
@@ -107,7 +108,7 @@ public class Node implements NodeRemoteInterface {
       } catch (Exception e) {
         System.out.println("An Exception occured on node " + id + " : "
         + e.getMessage());
-        deadNodes.push(id);
+        registerDeadNode(id);
       }
     }
   }
@@ -125,6 +126,16 @@ public class Node implements NodeRemoteInterface {
       }
     } catch (Exception e) {
         System.out.println("An Exception occured: " + e.getMessage());
+    }
+  }
+
+  public void registerDeadNode(Integer id) {
+    try {
+      registry.unbind(id.toString());
+      deadNodes.push(id);
+    } catch (Exception e) {
+      System.out.println("Exception when registering dead node: "
+      + e.getMessage());
     }
   }
 /*____________________________________________________________________________*/
@@ -181,7 +192,7 @@ public class Node implements NodeRemoteInterface {
       } catch (Exception e) {
         System.out.println("Could not deliver message to node " + id +
         ", added to deadnodes");
-        deadNodes.push(id);
+        registerDeadNode(id);
       }
     }
     return "OK";
