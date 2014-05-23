@@ -46,6 +46,6 @@ public interface NodeRemoteInterface extends Remote {
   /**
   *  Called by new node on leader, to register. Leader returns assigned ID.
   */
-  public int Register() throws RemoteException;
+  public int register() throws RemoteException;
 
 }
