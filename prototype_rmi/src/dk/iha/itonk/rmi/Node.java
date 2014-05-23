@@ -60,6 +60,12 @@ public class Node implements NodeRemoteInterface {
 
       if(count == 0) {
         System.out.println("Election done, this node is new leader.");
+        try{
+          registry.unbind(LEADER_ID.toString());
+        } catch (Exception e) {
+          System.out.println("Exception occured when unbinding"
+          + "previous leader");
+        }
         becomeLeader();
       }
     }
