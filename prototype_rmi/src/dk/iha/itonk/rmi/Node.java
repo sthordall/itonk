@@ -169,19 +169,19 @@ public class Node implements NodeRemoteInterface {
       return "Not Leader";
     }
 
+    System.out.println("Received message to publish: " + message);
+
     for(Integer id = 1; id < LEADER_ID ; id++) {
       try {
         if(deadNodes.search(id) == -1) {
           NodeRemoteInterface stub = (NodeRemoteInterface) registry
           .lookup(id.toString());
           String response = stub.deliverMessage(message);
-
-          if(response != "OK") {
-            deadNodes.push(id);
-          }
+          System.out("Message delivered to: " + id.toString());
         }
       } catch (Exception e) {
-        System.out.println("An Exception occured on node " + e.getMessage());
+        System.out.println("Could not deliver message to node " + id +
+        ", added to deadnodes");
         deadNodes.push(id);
       }
     }
