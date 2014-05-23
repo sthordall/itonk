@@ -166,7 +166,12 @@ public class Node implements NodeRemoteInterface {
       }
     } catch (Exception e) {
         System.out.println("Leader not responding, starting election");
-        startElection(NODE_ID);
+        try {
+          startElection(NODE_ID);
+        } catch (Exception ex) {
+          System.out.println("An error occurred when starting election: "
+          + ex.getMessage());
+        }
     }
   }
 
@@ -185,7 +190,7 @@ public class Node implements NodeRemoteInterface {
 /*____________________________________________________________________________*/
 
   public String startElection(int callingNodeId) throws RemoteException {
-    if(callingNodeId != NODE_ID) {
+    if(callingNodeId != NODE_ID) {
       System.out.println("Election received from: " + callingNodeId);
     }
 
