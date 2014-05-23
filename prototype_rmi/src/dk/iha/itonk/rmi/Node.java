@@ -144,6 +144,8 @@ public class Node implements NodeRemoteInterface {
     isLeader = false;
     if(LEADER_ID == NODE_ID) {
       becomeLeader();
+    } else {
+      System.out.println("New leader, node " + LEADER_ID);
     }
     return "OK";
   }
