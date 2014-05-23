@@ -1,4 +1,7 @@
 \section{Java RMI}
+Java RMI, short for Java Remote Method Invocation, is a middleware type used with Java, and is used to connect several java machines together.
+
+We will in the following chapter describe how the virtual machine that Java uses to run works, in context to the RMI, and how the RMI works.
 \subsection{Java Virtual Machine}
 \subsubsection{Java as a programming language}
 The semantics of a programming language are designed to be close to the natural language, while it's staying easy for a machine to interpret. Java is a so-called \emph{high-level language} which creates an abstraction from the machine code. High-level code must be interpreted by the machine before it is able to run. Java works with and intermediate language called \emph{Java bytecode} and the \emph{Java Virtual Machine}.
@@ -25,22 +28,18 @@ The RMI architecture contains three different layers \footnote{http://publib.bou
 The stub and skeleton layer, is the "communication" between the client object, and the remote object. This is where the call gets serialized, and again deserialized. This layer holds the reference that the object gets, when calling for a method. The stubs and skeletons are compiler created.
 
  \item[Remote Reference layer] \hfill \\
-
-This layer manages the client server connections via tcp/ip. It creates a data transmission through a stream oriented connection.
+This layer manages marshalling and unmarshalling the data, that are handled down from the above layer. It creates a data transmission through a stream oriented connection.
 
  \item[Transport layer] \hfill \\
-
 Works through a TCP/IP connection, and provides the basic connectivity, such as listening for calls, managing requests, and providing some firewall strategies.
 \end{description}
 
-\subsection{remote interface}
-A Remote interface is used to create a remote object. An object is remote by implementing the Remote interface. To make it remote, the interface must extend the \emph{java.rmi.Remote}. When dealing with a \emph{throws} clause in a method, it must as well declare \emph{java.rmi.RemoteException}, in addition to any other exception.\\
-
-The remote object will now be treated as a stub, by the RMI. The stub of the object acts as a local representative to the client, and basically is a remote reference.
+\subsection{Remote interface and remote objects}
 
 
-\subsection{Remote object}
-The remote object in this context refers to an element in the Java RMI. Defining a remote RMI object involves specifying a remote interface for the object, then providing a class that implements this interface. The remote interface and implementation class are then used by RMI to generate a client stub and server skeleton for your remote object. The communication between local objects and remote objects is handled using these client stubs and server skeletons.
+A Remote interface is used to create a remote object. An object is remote by implementing the Remote interface. To make it remote, the interface must extend the \emph{java.rmi.Remote} interface. When dealing with a \emph{throws} clause in a method, it must as well declare \emph{java.rmi.RemoteException}, in addition to any other exception.\\
+
+The remote interface and implementation class are then used by RMI to generate a client stub and server skeleton for the remote object. The stub of the object acts as a local representative to the client, and basically is a remote reference.
 
 \begin{figure}[ht!]
 \centering
@@ -50,6 +49,7 @@ The remote object in this context refers to an element in the Java RMI. Defining
 \end{figure}
 
 \subsection{Remote Method Invocation}
-The Java Remote Method Invocation system is a mechanism that enables an object on one Java virtual machine to invoke methods on an object in another Java virtual machine. Any object whose methods can be invoked in this way must implement the java.rmi.Remote interface. When such an object is invoked, its arguments are marshalled and sent from the local virtual machine to the remote one, where the arguments are \emph{unmarshalled} and used. When the method terminates, the results are \emph{marshalled} (meaning it must be serializeable) from the remote machine and sent to the caller's virtual machine.
+The Java Remote Method Invocation system is a mechanism that enables an object on one Java virtual machine to invoke methods on an object in another Java virtual machine. When such an object is invoked, its arguments are marshalled and sent from the local virtual machine to the remote one, where the arguments are \emph{unmarshalled} and used. When the method terminates, the results are \emph{marshalled} (meaning it must be serializeable) from the remote machine and sent to the caller's virtual machine.
 
-To make a remote object accessible to other virtual machines, a program typically registers it with the RMI registry. The program supplies to the registry the string name of the remote object as well as the remote object itself. When a program wants to access a remote object, it supplies the object's string name to the registry that is on the same machine as the remote object. The registry returns to the caller a reference (called stub) to the remote object. When the program receives the stub for the remote object, it can invoke methods on the object (through the stub). 
+To make a remote object accessible to other virtual machines, a program must register it with the RMI registry.
+The program supplies the registry with a string, holding the name of the remote object, and the remote object itself. When a program wants to access the remote object, it only needs to call the registry with name of the object. The registry returns a reference (called stub) of the remote object to the caller. Then, it can invoke methods on the object (through the stub). 

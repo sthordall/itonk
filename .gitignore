@@ -19,3 +19,7 @@ report_dns/document.synctex.gz(busy)
 <<<<<<< HEAD
 =======
 >>>>>>> FETCH_HEAD
+*.bak
+*.synctex
+*.blg
+*.bbl
