@@ -193,9 +193,11 @@ public class Node implements NodeRemoteInterface {
     }
 
     if(deadNodes.empty()) {
-      return NODE_ID + 1;
+      System.out.println("New node registering, id = " + (NODE_ID + 1));
+      return (NODE_ID + 1);
     } else {
-      return deadNodes.pop();
+      System.out.println("New node registering, id = " + deadNodes.peek());
+      return (int) deadNodes.pop();
     }
   }
 }
