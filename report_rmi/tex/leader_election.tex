@@ -27,7 +27,7 @@ The winner of the election is the one process with the highest ID number, and wi
 At any given time, when a process which had a downtime becomes operational, it will hold the election.
 And yet again, the election phase will finish till the one process with highest ID number holds the election. So if the awaken process happens to have the highest ID number of all processes, it will become the winner of the election and take over the role as the coordinator. Hence the name “Bully election” because the one who plays the game right is also the one who sits on the throne.
 
-\subsubsection{Bully election algorithm}
+\subsubsection{Ring election algorithm}
 In order for this algorithm to make sense, an assumption has to be made, that the processes has to be either physically or logically ordered, so that each process is able to identify its successor.
 
 When a process notices that the current coordinator for some reason is not operational, it will send out an ELECTION message, which in the message contains the process own ID number. The message will be sent to its successor.
@@ -65,5 +65,3 @@ The figure propose the difference between the classic Bully Algorithm to the Fas
 \includegraphics[width=100mm]{img/big_o_notation_overview_for_BA.png}
 \caption{Difference between Bully Algorithm and Fast Bully Algorithm with use of big o notation\cite{TheFastBullyAlgorithm}}
 \end{figure}
-
-
