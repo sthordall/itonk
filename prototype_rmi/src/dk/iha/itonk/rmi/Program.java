@@ -25,8 +25,9 @@ public class Program {
     findLeader();
     registerNode();
   }
-  /*____________________________________________________________________________*/
-/*                            NODE INITIALIZATION                             */  /*____________________________________________________________________________*/
+/*____________________________________________________________________________*/
+/*                            NODE INITIALIZATION                             */
+/*____________________________________________________________________________*/
 
   public static void setupRegistry() {
     try {
@@ -51,7 +52,7 @@ public class Program {
         //If tried id's from 1-10, declare leadership.
 
       } catch (Exception e) {
-        System.out.println("An Exception occured: " + e.getMessage());
+        System.out.println("No node on id " + e.getMessage());
       }
 
       if(incrementalId == 10) {
