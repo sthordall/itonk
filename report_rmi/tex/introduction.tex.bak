@@ -1,7 +1,4 @@
 \chapter{Introduction}
-
-This report is about Java Remote Method Invocation (RMI). In the report the following subjects will be touched:
-
 \begin{itemize}
 \item Java RMI
 \item Leader election
