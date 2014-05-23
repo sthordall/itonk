@@ -178,6 +178,8 @@ public class Node implements NodeRemoteInterface {
           .lookup(id.toString());
           String response = stub.deliverMessage(message);
           System.out.println("Message delivered to: " + id.toString());
+        } else {
+            System.out.println("Node " + id + " is dead, not delivering");
         }
       } catch (Exception e) {
         System.out.println("Could not deliver message to node " + id +
