@@ -19,12 +19,13 @@ public class Program {
     node.registerNode();
   }
 
-  public static Registry setupRegistry(string registryHost, int registryPort) {
+  public static Registry setupRegistry(String registryHost, int registryPort) {
     try {
       return LocateRegistry.getRegistry(registryHost, registryPort);
     } catch(Exception e) {
       System.out.println(e.getMessage());
     }
+    return null;
   }
 
 }
