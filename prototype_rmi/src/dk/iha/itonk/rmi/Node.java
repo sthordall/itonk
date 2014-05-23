@@ -86,9 +86,12 @@ public class Node implements NodeRemoteInterface {
 
     } catch (Exception e) {
       System.out.println("An Exception occured: " + e.getMessage());
-      e.printStackTrace();
     }
   }
+
+/*____________________________________________________________________________*/
+/*                               HELPER FUNCTIONS                             */
+/*____________________________________________________________________________*/
 
   public void becomeLeader() {
     System.out.println("Became leader");
@@ -110,9 +113,23 @@ public class Node implements NodeRemoteInterface {
         deadNodes.push(id);
       }
     }
-
   }
 
+  public void sendMessage(String message) {
+    try {
+      if(isLeader) {
+        System.out.println("Is leader, publishing message");
+        publishMessage(message);
+      } else {
+        System.out.println("Publishing message with leader");
+        NodeRemoteInterface stub = (NodeRemoteInterface) registry
+        .lookup(LEADER_ID.toString());
+        stub.publishMessage(message);
+      }
+    } catch (Exception e) {
+        System.out.println("An Exception occured: " + e.getMessage());
+    }
+  }
 /*____________________________________________________________________________*/
 /*                           INTERFACE IMPLEMENTATIONS                        */
 /*                                NODE FUNCTIONS                              */
@@ -173,8 +190,6 @@ public class Node implements NodeRemoteInterface {
     }
 
     if(deadNodes.empty()) {
-
-
       return NODE_ID + 1;
     } else {
       return deadNodes.pop();
